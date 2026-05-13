@@ -24,7 +24,10 @@ Secondary signal: Cloud Security Automation when the role values cloud, risk, IA
 
 - Retail repo now has a runnable dbt-style SQL model layer.
 - Retail repo now has an optional Airflow DAG example.
+- Retail repo now has data lineage and quality diagnosis reports.
 - Portfolio now has a one-page proof sheet PDF.
+- Portfolio now has a technical case study.
+- Portfolio now has company-specific application packs.
 - Portfolio homepage links directly to the proof sheet.
 - CV now reflects dbt-style SQL modeling and Airflow basics.
 
