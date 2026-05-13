@@ -1,0 +1,4 @@
+company,role,location,source,status,deadline,applied_date,follow_up_date,contact,notes
+Example Company,Data Engineering Intern,Cairo/Remote,LinkedIn,Not applied,,,,,Tailor CV around ETL and SQL
+Example Company,BI Intern,Cairo,Company site,Not applied,,,,,Highlight Streamlit and KPI dashboards
+Example Company,Cloud Security Intern,Remote,Referral,Not applied,,,,,Highlight cloud auditor and policy-as-code
