@@ -18,10 +18,15 @@ Enable GitHub Pages for this repository after making it public.
 
 ## Career Package
 
+- [Standout candidate system](docs/standout_candidate_system.md)
 - [Final launch checklist](docs/final_launch_checklist.md)
 - [LinkedIn profile package](docs/linkedin_profile_package.md)
 - [Interview answers](docs/interview_answers.md)
 - [Project interview pitches](docs/project_interview_pitches.md)
+- [SQL and interview prep pack](docs/sql_interview_prep_pack.md)
+- [Referral outreach system](docs/referral_outreach_system.md)
+- [GitHub polish checklist](docs/github_polish_checklist.md)
+- [DP-900 certification plan](docs/certification_plan_dp900.md)
 - [Streamlit Cloud deployment checklist](docs/streamlit_cloud_deployment_checklist.md)
 - [Streamlit deployment walkthroughs](docs/streamlit_deployment_walkthroughs.md)
 - [Two-week application sprint](docs/two_week_application_sprint.md)

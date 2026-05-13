@@ -30,6 +30,7 @@ Examples to search manually: Vodafone, Orange, Etisalat/e&, CIB, Banque Misr, QN
 - Make public launch changes.
 - Deploy Retail dashboard.
 - Update tracker with 20 target companies.
+- Read `standout_candidate_system.md`.
 
 ### Day 2
 
@@ -46,7 +47,7 @@ Examples to search manually: Vodafone, Orange, Etisalat/e&, CIB, Banque Misr, QN
 ### Day 4
 
 - Apply to 5 Data Engineering or BI roles.
-- Send 5 LinkedIn connection messages.
+- Send 5 contact messages using `referral_outreach_system.md`.
 
 ### Day 5
 
@@ -72,7 +73,7 @@ Examples to search manually: Vodafone, Orange, Etisalat/e&, CIB, Banque Misr, QN
 ### Day 9
 
 - Apply to 5 roles.
-- Prepare answers for SQL, ETL, data quality, and dashboard questions.
+- Practice 10 drills from `sql_interview_prep_pack.md`.
 
 ### Day 10
 
@@ -99,6 +100,7 @@ Examples to search manually: Vodafone, Orange, Etisalat/e&, CIB, Banque Misr, QN
 - Audit tracker.
 - Mark next follow-up dates.
 - Improve weakest application materials based on responses.
+- Choose DP-900 exam date only if budget and practice scores are ready.
 
 ## Follow-Up Schedule
 
