@@ -26,6 +26,10 @@ Repository:
 
 - https://github.com/HaloXD1/data-pipeline-kpi-dashboard
 
+Live demo:
+
+- https://ahmed-retail-kpi-dashboard.streamlit.app/
+
 Main output:
 
 - Streamlit dashboard with Executive, Sales, Products, Customers, and Data Quality views.
@@ -75,6 +79,10 @@ Repository:
 
 - https://github.com/HaloXD1/saas-analytics-engineering-pipeline
 
+Live demo:
+
+- https://ahmed-saas-analytics-pipeline.streamlit.app/
+
 Main output:
 
 - Streamlit dashboard with SaaS executive metrics, revenue, churn, product usage, customer health, and data quality.
@@ -116,6 +124,10 @@ streamlit run app/streamlit_dashboard.py
 Repository:
 
 - https://github.com/HaloXD1/cloud-security-posture-auditor
+
+Live demo:
+
+- https://ahmed-cloud-security-auditor.streamlit.app/
 
 Main output:
 
@@ -213,17 +225,13 @@ You must do this because it requires your Streamlit/GitHub login.
 8. Test all tabs: Executive Risk Summary, Critical Findings, IAM, Network Exposure, Storage Security, Logging and Detection, Remediation Tracker.
 9. Copy the live URL.
 
-## After You Have The 3 Streamlit URLs
+## Streamlit URLs Added
 
-Send the URLs back here.
+- Retail: https://ahmed-retail-kpi-dashboard.streamlit.app/
+- SaaS: https://ahmed-saas-analytics-pipeline.streamlit.app/
+- Cloud Security: https://ahmed-cloud-security-auditor.streamlit.app/
 
-Then I can update:
-
-- Portfolio project buttons.
-- GitHub profile README.
-- Each project README `Live Demo` section.
-- Proof sheet.
-- CV source/PDF/DOCX if the links are stable.
+These are now wired into the portfolio, GitHub profile README, project READMEs, and proof sheet.
 
 ## Manual Step-By-Step: GitHub Profile
 
@@ -258,8 +266,8 @@ Business Informatics Student | Data Engineering & Analytics Engineering | Python
 
 Only these:
 
-1. The three Streamlit live URLs after you deploy them.
-2. Confirmation that GitHub pins are done.
-3. Confirmation that LinkedIn Featured links are added.
+1. Test each live app once in your own browser.
+2. Pin the GitHub repos.
+3. Add LinkedIn Featured links.
 
 No secrets, passwords, or private credentials needed.

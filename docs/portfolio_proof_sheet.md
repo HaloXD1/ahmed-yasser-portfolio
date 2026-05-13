@@ -28,7 +28,10 @@ LinkedIn: https://www.linkedin.com/in/ahmed-yasser-shalaby/
 
 ## Best Links
 
-- Retail: https://github.com/HaloXD1/data-pipeline-kpi-dashboard
-- SaaS: https://github.com/HaloXD1/saas-analytics-engineering-pipeline
-- Cloud Security: https://github.com/HaloXD1/cloud-security-posture-auditor
+- Retail demo: https://ahmed-retail-kpi-dashboard.streamlit.app/
+- Retail repo: https://github.com/HaloXD1/data-pipeline-kpi-dashboard
+- SaaS demo: https://ahmed-saas-analytics-pipeline.streamlit.app/
+- SaaS repo: https://github.com/HaloXD1/saas-analytics-engineering-pipeline
+- Cloud Security demo: https://ahmed-cloud-security-auditor.streamlit.app/
+- Cloud Security repo: https://github.com/HaloXD1/cloud-security-posture-auditor
 - Profile: https://github.com/HaloXD1

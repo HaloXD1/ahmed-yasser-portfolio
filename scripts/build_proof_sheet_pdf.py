@@ -146,9 +146,12 @@ story = [
         "GitHub Actions, pytest, Ruff, Docker; IAM-style checks, policy-as-code, and risk scoring.",
     ),
     p("Best Links", section_style),
-    p("Retail: https://github.com/HaloXD1/data-pipeline-kpi-dashboard", link_style),
-    p("SaaS: https://github.com/HaloXD1/saas-analytics-engineering-pipeline", link_style),
-    p("Cloud Security: https://github.com/HaloXD1/cloud-security-posture-auditor", link_style),
+    p("Retail demo: https://ahmed-retail-kpi-dashboard.streamlit.app/", link_style),
+    p("Retail repo: https://github.com/HaloXD1/data-pipeline-kpi-dashboard", link_style),
+    p("SaaS demo: https://ahmed-saas-analytics-pipeline.streamlit.app/", link_style),
+    p("SaaS repo: https://github.com/HaloXD1/saas-analytics-engineering-pipeline", link_style),
+    p("Cloud demo: https://ahmed-cloud-security-auditor.streamlit.app/", link_style),
+    p("Cloud repo: https://github.com/HaloXD1/cloud-security-posture-auditor", link_style),
     p("Profile: https://github.com/HaloXD1", link_style),
 ]
 

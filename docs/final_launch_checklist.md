@@ -12,27 +12,27 @@ Keep any private/raw personal repos private.
 
 ## Deploy
 
-- Retail Streamlit app from `data-pipeline-kpi-dashboard`.
-- SaaS Streamlit app from `saas-analytics-engineering-pipeline`.
-- Cloud security Streamlit app from `cloud-security-posture-auditor`.
-- Portfolio site through GitHub Pages: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
+- Retail Streamlit app: `https://ahmed-retail-kpi-dashboard.streamlit.app/`.
+- SaaS Streamlit app: `https://ahmed-saas-analytics-pipeline.streamlit.app/`.
+- Cloud security Streamlit app: `https://ahmed-cloud-security-auditor.streamlit.app/`.
+- Portfolio site: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
 
 ## Links To Paste
 
 ### Project READMEs
 
-- Paste each Streamlit URL in the `Live Demo` section.
+- Done: each Streamlit URL is in the `Live Demo` section.
 - Keep the dashboard GIF under the live demo link.
 
 ### Portfolio Landing Page
 
-- Add the three Streamlit URLs to the relevant project cards.
-- Add the final GitHub Pages URL to LinkedIn and CV after testing: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
+- Done: three Streamlit URLs are on the relevant project cards.
+- Add the final GitHub Pages URL to LinkedIn after testing: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
 - Keep the proof sheet PDF reachable from the portfolio hero: `docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf`.
 
 ### CV
 
-- Add live demo links only after the apps work.
+- Portfolio link added to the header.
 - Keep GitHub profile link in the header.
 - Use the Data Engineering version as default.
 
@@ -59,7 +59,5 @@ Pin these repositories in this order:
 ## Update After Launch
 
 - Close each repo issue named `Deploy Streamlit demo`.
-- Update CV with live links.
 - Update LinkedIn Featured.
 - Update GitHub profile README if any final URL changes.
-- Re-export final CV PDF.

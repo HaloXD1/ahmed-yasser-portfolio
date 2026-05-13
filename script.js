@@ -8,8 +8,8 @@ const roleContent = {
       "Shows root-cause thinking through the quality diagnosis report.",
       "Gives recruiters a fast proof sheet and deeper case study.",
     ],
-    link: "https://github.com/HaloXD1/data-pipeline-kpi-dashboard",
-    linkText: "Open best repo",
+    link: "https://ahmed-retail-kpi-dashboard.streamlit.app/",
+    linkText: "Open retail demo",
   },
   analytics: {
     title: "SaaS metrics plus retail KPI proof.",
@@ -20,8 +20,8 @@ const roleContent = {
       "Connects BI output to trusted modeling and validation.",
       "Fits data analyst, BI intern, and analytics engineering roles.",
     ],
-    link: "https://github.com/HaloXD1/saas-analytics-engineering-pipeline",
-    linkText: "Open SaaS repo",
+    link: "https://ahmed-saas-analytics-pipeline.streamlit.app/",
+    linkText: "Open SaaS demo",
   },
   security: {
     title: "Cloud security automation with data discipline.",
@@ -32,8 +32,8 @@ const roleContent = {
       "Keeps the security proof safe by using offline synthetic snapshots.",
       "Works for cloud, cyber, IAM, SOC, risk, and automation roles.",
     ],
-    link: "https://github.com/HaloXD1/cloud-security-posture-auditor",
-    linkText: "Open security repo",
+    link: "https://ahmed-cloud-security-auditor.streamlit.app/",
+    linkText: "Open security demo",
   },
 };
 

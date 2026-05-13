@@ -12,6 +12,8 @@ Community Cloud runs `streamlit run` from the repository root. Each project keep
 
 Repository: `HaloXD1/data-pipeline-kpi-dashboard`
 
+Live URL: https://ahmed-retail-kpi-dashboard.streamlit.app/
+
 Values:
 
 - Branch: `main`
@@ -23,13 +25,15 @@ Values:
 After deployment:
 
 - Test Executive, Sales, Products, Customers, and Data Quality tabs.
-- Paste URL into README `Live Demo`.
+- README `Live Demo` is updated.
 - Paste URL into LinkedIn Featured.
 - Close issue: `Deploy Streamlit demo`.
 
 ## SaaS Dashboard
 
 Repository: `HaloXD1/saas-analytics-engineering-pipeline`
+
+Live URL: https://ahmed-saas-analytics-pipeline.streamlit.app/
 
 Values:
 
@@ -42,13 +46,15 @@ Values:
 After deployment:
 
 - Test Executive, Revenue, Churn, Product Usage, Customer Health, and Data Quality tabs.
-- Paste URL into README `Live Demo`.
+- README `Live Demo` is updated.
 - Paste URL into LinkedIn Featured.
 - Close issue: `Deploy Streamlit demo`.
 
 ## Cloud Security Dashboard
 
 Repository: `HaloXD1/cloud-security-posture-auditor`
+
+Live URL: https://ahmed-cloud-security-auditor.streamlit.app/
 
 Values:
 
@@ -61,7 +67,7 @@ Values:
 After deployment:
 
 - Test Executive Risk Summary, Critical Findings, IAM, Network Exposure, Storage Security, Logging and Detection, and Remediation Tracker tabs.
-- Paste URL into README `Live Demo`.
+- README `Live Demo` is updated.
 - Paste URL into LinkedIn Featured.
 - Close issue: `Deploy Streamlit demo`.
 
