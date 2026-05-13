@@ -2,6 +2,8 @@
 
 Static portfolio landing page for Data Engineering, Analytics Engineering, and Cloud Security Automation internship positioning.
 
+Live site: https://haloxd1.github.io/ahmed-yasser-portfolio/
+
 ## Local Preview
 
 ```bash

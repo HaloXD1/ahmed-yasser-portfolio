@@ -15,7 +15,7 @@ Keep any private/raw personal repos private.
 - Retail Streamlit app from `data-pipeline-kpi-dashboard`.
 - SaaS Streamlit app from `saas-analytics-engineering-pipeline`.
 - Cloud security Streamlit app from `cloud-security-posture-auditor`.
-- Portfolio site through GitHub Pages after the portfolio repo is public.
+- Portfolio site through GitHub Pages: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
 
 ## Links To Paste
 
@@ -27,7 +27,7 @@ Keep any private/raw personal repos private.
 ### Portfolio Landing Page
 
 - Add the three Streamlit URLs to the relevant project cards.
-- Add the final GitHub Pages URL to LinkedIn and CV after testing.
+- Add the final GitHub Pages URL to LinkedIn and CV after testing: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
 
 ### CV
 
