@@ -19,6 +19,8 @@ Enable GitHub Pages for this repository after making it public.
 ## Career Package
 
 - [Standout candidate system](docs/standout_candidate_system.md)
+- [Portfolio proof sheet](docs/portfolio_proof_sheet.md)
+- [Portfolio proof sheet PDF](docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf)
 - [Final launch checklist](docs/final_launch_checklist.md)
 - [LinkedIn profile package](docs/linkedin_profile_package.md)
 - [Interview answers](docs/interview_answers.md)

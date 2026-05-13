@@ -20,6 +20,14 @@ Secondary signal: Cloud Security Automation when the role values cloud, risk, IA
 | GitHub polish | Profile README + pinned repos + repo READMEs | `HaloXD1/README.md`, project READMEs |
 | One light cert | DP-900 study path | `certification_plan_dp900.md` |
 
+## Completed Best Moves
+
+- Retail repo now has a runnable dbt-style SQL model layer.
+- Retail repo now has an optional Airflow DAG example.
+- Portfolio now has a one-page proof sheet PDF.
+- Portfolio homepage links directly to the proof sheet.
+- CV now reflects dbt-style SQL modeling and Airflow basics.
+
 ## Weekly Operating Rhythm
 
 - Sunday: choose 10 roles and 10 contacts.

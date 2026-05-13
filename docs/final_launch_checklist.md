@@ -28,6 +28,7 @@ Keep any private/raw personal repos private.
 
 - Add the three Streamlit URLs to the relevant project cards.
 - Add the final GitHub Pages URL to LinkedIn and CV after testing: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
+- Keep the proof sheet PDF reachable from the portfolio hero: `docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf`.
 
 ### CV
 

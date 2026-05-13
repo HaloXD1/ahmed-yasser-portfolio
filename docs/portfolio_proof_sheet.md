@@ -1,0 +1,34 @@
+# Ahmed Yasser Shalaby - Portfolio Proof Sheet
+
+Target: Summer 2026 Data Engineering, Analytics Engineering, BI/Data, and Cloud/Security Automation internships.
+
+Contact: Ahmedy999.ay@gmail.com  
+GitHub: https://github.com/HaloXD1  
+Portfolio: https://haloxd1.github.io/ahmed-yasser-portfolio/  
+LinkedIn: https://www.linkedin.com/in/ahmed-yasser-shalaby/
+
+## Strongest Proof
+
+| Project | Problem | Proof |
+|---|---|---|
+| Retail Data Pipeline and KPI Dashboard | Messy retail exports need trusted KPIs. | Python/SQL ETL, YAML contracts, full/incremental SQLite loads, rejected rows, KPI exports, health checks, Streamlit, Docker, CI, dbt-style SQL models, optional Airflow DAG. |
+| SaaS Analytics Engineering Pipeline | SaaS teams need reliable MRR, churn, adoption, and health metrics. | DuckDB/Parquet layers, SQL marts, data contracts, incremental loading, Streamlit dashboard, Docker, CI. |
+| Cloud Security Posture Auditor | Cloud teams need safer posture checks without exposing real accounts. | Offline AWS-style snapshots, YAML policy rules, severity scoring, remediation reports, scorecards, dashboard, secret scanning. |
+| Outlook Calendar Automation | Academic deadlines are spread across email and easy to miss. | Outlook scanning, Google Calendar API, SQLite dedupe, dry-run mode, JSON audit logs. |
+
+## Skills I Can Defend
+
+- Python data cleaning and automation.
+- SQL joins, CTEs, windows, marts, KPI validation.
+- Data quality checks and rejected-row reporting.
+- Incremental/idempotent loading.
+- Streamlit dashboards and KPI storytelling.
+- GitHub Actions, pytest, Ruff, Docker.
+- Cloud/security basics: IAM-style checks, policy-as-code, risk scoring.
+
+## Best Links
+
+- Retail: https://github.com/HaloXD1/data-pipeline-kpi-dashboard
+- SaaS: https://github.com/HaloXD1/saas-analytics-engineering-pipeline
+- Cloud Security: https://github.com/HaloXD1/cloud-security-posture-auditor
+- Profile: https://github.com/HaloXD1
