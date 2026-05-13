@@ -16,9 +16,14 @@ Enable GitHub Pages for this repository after making it public.
 
 ## Career Package
 
+- [Final launch checklist](docs/final_launch_checklist.md)
 - [LinkedIn profile package](docs/linkedin_profile_package.md)
+- [Interview answers](docs/interview_answers.md)
 - [Project interview pitches](docs/project_interview_pitches.md)
 - [Streamlit Cloud deployment checklist](docs/streamlit_cloud_deployment_checklist.md)
+- [Streamlit deployment walkthroughs](docs/streamlit_deployment_walkthroughs.md)
+- [Two-week application sprint](docs/two_week_application_sprint.md)
+- [CV recruiter review](docs/cv_recruiter_review.md)
 - [Application tracker](docs/application_tracker.csv)
 - [Recruiter message templates](docs/recruiter_message_templates.md)
 
