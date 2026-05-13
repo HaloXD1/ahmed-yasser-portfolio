@@ -4,6 +4,8 @@ Static portfolio landing page for Data Engineering, Analytics Engineering, and C
 
 Live site: https://haloxd1.github.io/ahmed-yasser-portfolio/
 
+Current concept: Data Reliability Lab.
+
 ## Local Preview
 
 ```bash
@@ -23,6 +25,7 @@ Enable GitHub Pages for this repository after making it public.
 - [Portfolio proof sheet PDF](docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf)
 - [Retail pipeline case study](docs/case_studies/retail_pipeline_case_study.md)
 - [Company application packs](docs/company_packs/README.md)
+- [Design inspiration notes](docs/design_inspiration_notes.md)
 - [Final launch checklist](docs/final_launch_checklist.md)
 - [LinkedIn profile package](docs/linkedin_profile_package.md)
 - [Interview answers](docs/interview_answers.md)

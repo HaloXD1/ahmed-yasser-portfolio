@@ -5,148 +5,276 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Ahmed Yasser Shalaby portfolio for Data Engineering, Analytics Engineering, and Cloud Security Automation internships."
+      content="Ahmed Yasser Shalaby portfolio for Data Engineering, Analytics Engineering, BI, and Cloud Security Automation internships."
     />
-    <title>Ahmed Yasser Shalaby | Data Engineering Portfolio</title>
+    <title>Ahmed Yasser Shalaby | Data Reliability Lab</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Ahmed Yasser Shalaby portfolio">AYS</a>
+      <a class="brand" href="#top" aria-label="Ahmed Yasser Shalaby portfolio">
+        <span>AYS</span>
+        <small>Reliability Lab</small>
+      </a>
       <nav aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <a href="#proof">Proof</a>
+        <a href="#systems">Systems</a>
+        <a href="#lineage">Lineage</a>
+        <a href="#packs">Packs</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">Business Informatics student | Summer 2026 internship target</p>
+        <div class="hero-content">
+          <p class="eyebrow">Summer 2026 internship target / Data Engineering first</p>
           <h1 id="hero-title">Ahmed Yasser Shalaby</h1>
           <p class="hero-text">
-            Portfolio focused on data pipelines, analytics engineering, BI dashboards, and cloud security automation.
+            I build small data systems that behave like real work: contracts before loading, models before dashboards,
+            diagnosis after failures, and proof recruiters can inspect quickly.
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">View Projects</a>
-            <a class="button secondary" href="docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf">Proof Sheet</a>
-            <a class="button secondary" href="docs/case_studies/retail_pipeline_case_study.md">Case Study</a>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf">Proof Sheet</a>
             <a class="button secondary" href="https://github.com/HaloXD1">GitHub</a>
+            <a class="button secondary" href="#systems">Inspect Systems</a>
           </div>
         </div>
-        <div class="hero-panel" aria-label="Portfolio highlights">
+
+        <div class="signal-rail" aria-label="Portfolio evidence signals">
           <div>
-            <span class="metric">3</span>
-            <span class="label">flagship repos</span>
+            <strong>Contracts</strong>
+            <span>schema, keys, ranges</span>
           </div>
           <div>
-            <span class="metric">CI</span>
-            <span class="label">tests and linting</span>
+            <strong>Models</strong>
+            <span>staging to marts</span>
           </div>
           <div>
-            <span class="metric">ETL</span>
-            <span class="label">data quality and dashboards</span>
+            <strong>Lineage</strong>
+            <span>raw to dashboard</span>
+          </div>
+          <div>
+            <strong>Diagnosis</strong>
+            <span>root cause and fixes</span>
+          </div>
+          <div>
+            <strong>CI</strong>
+            <span>tests, lint, smoke</span>
           </div>
         </div>
       </section>
 
-      <section class="section intro" aria-label="Portfolio positioning">
-        <p>
-          I build reproducible technical projects that turn messy data or configuration snapshots into validated outputs,
-          clear metrics, and recruiter-friendly dashboards.
-        </p>
+      <section class="proof-board" id="proof" aria-labelledby="proof-title">
+        <div class="section-kicker">
+          <p class="eyebrow">Recruiter Route</p>
+          <h2 id="proof-title">Choose the role, get the proof.</h2>
+        </div>
+        <div class="switchboard">
+          <div class="role-tabs" role="tablist" aria-label="Portfolio angle selector">
+            <button class="role-tab active" type="button" data-role="engineering" aria-pressed="true">
+              Data Engineering
+            </button>
+            <button class="role-tab" type="button" data-role="analytics" aria-pressed="false">
+              BI / Analytics
+            </button>
+            <button class="role-tab" type="button" data-role="security" aria-pressed="false">
+              Cloud Security
+            </button>
+          </div>
+          <div class="role-proof" aria-live="polite">
+            <p class="proof-label" id="role-label">Best evidence path</p>
+            <h3 id="role-title">Retail pipeline first, SaaS pipeline second.</h3>
+            <p id="role-copy">
+              Lead with the retail ETL project: contracts, incremental loading, SQL model layer, quality diagnosis,
+              lineage, Airflow example, Docker, CI, and dashboard exports.
+            </p>
+            <ul id="role-list">
+              <li>Proves Python, SQL, validation, data modeling, and reliability.</li>
+              <li>Shows root-cause thinking through the quality diagnosis report.</li>
+              <li>Gives recruiters a fast proof sheet and deeper case study.</li>
+            </ul>
+            <a id="role-link" href="https://github.com/HaloXD1/data-pipeline-kpi-dashboard">Open best repo</a>
+          </div>
+        </div>
       </section>
 
-      <section class="section" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="eyebrow">Selected Work</p>
-          <h2 id="projects-title">Flagship Projects</h2>
+      <section class="systems" id="systems" aria-labelledby="systems-title">
+        <div class="section-kicker">
+          <p class="eyebrow">Flagship Systems</p>
+          <h2 id="systems-title">Three projects, one coherent signal.</h2>
         </div>
 
-        <div class="project-grid">
-          <article class="project-card">
+        <article class="feature-system">
+          <div class="system-media">
             <img src="assets/retail_dashboard_demo.gif" alt="Retail KPI dashboard demo" />
-            <div class="project-body">
-              <p class="project-type">Data Engineering</p>
-              <h3>Retail Data Pipeline and KPI Dashboard</h3>
-              <p>
-                Python and SQL ETL pipeline with YAML contracts, incremental SQLite loading, quality reports, KPI exports,
-                Docker, CI, and Streamlit dashboard.
-              </p>
-              <div class="tags">
-                <span>Python</span><span>SQL</span><span>SQLite</span><span>Streamlit</span>
-              </div>
-              <a href="https://github.com/HaloXD1/data-pipeline-kpi-dashboard">Repository</a>
+          </div>
+          <div class="system-copy">
+            <p class="project-type">Data Engineering flagship</p>
+            <h3>Retail Data Pipeline and KPI Dashboard</h3>
+            <p>
+              A public work sample for the messy middle of data engineering: raw exports, contracts, rejected rows,
+              trusted tables, model views, dashboard files, diagnosis, lineage, and CI.
+            </p>
+            <div class="evidence-grid" aria-label="Retail pipeline evidence">
+              <span>YAML contracts</span>
+              <span>Incremental loads</span>
+              <span>dbt-style models</span>
+              <span>Airflow DAG</span>
+              <span>Quality diagnosis</span>
+              <span>Lineage map</span>
             </div>
-          </article>
+            <div class="link-row">
+              <a href="https://github.com/HaloXD1/data-pipeline-kpi-dashboard">Repository</a>
+              <a href="https://github.com/HaloXD1/data-pipeline-kpi-dashboard/blob/main/docs/quality_diagnosis.md">
+                Diagnosis
+              </a>
+              <a href="https://github.com/HaloXD1/data-pipeline-kpi-dashboard/blob/main/docs/lineage.md">Lineage</a>
+            </div>
+          </div>
+        </article>
 
-          <article class="project-card">
+        <div class="system-grid">
+          <article class="system-card">
             <img src="assets/saas_dashboard_demo.gif" alt="SaaS analytics dashboard demo" />
-            <div class="project-body">
-              <p class="project-type">Analytics Engineering</p>
+            <div>
+              <p class="project-type">Analytics engineering</p>
               <h3>SaaS Analytics Engineering Pipeline</h3>
               <p>
-                DuckDB and Parquet pipeline for customer, billing, subscription, support, and product-event data with
-                trusted KPI marts and dashboard exports.
+                DuckDB/Parquet pipeline for MRR, churn, adoption, and customer health marts with data contracts,
+                incremental loading, Docker, CI, and dashboard exports.
               </p>
-              <div class="tags">
-                <span>DuckDB</span><span>Parquet</span><span>SQL</span><span>CI</span>
+              <div class="link-row">
+                <a href="https://github.com/HaloXD1/saas-analytics-engineering-pipeline">Repository</a>
               </div>
-              <a href="https://github.com/HaloXD1/saas-analytics-engineering-pipeline">Repository</a>
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="system-card">
             <img src="assets/cloud_security_dashboard_demo.gif" alt="Cloud security dashboard demo" />
-            <div class="project-body">
-              <p class="project-type">Cloud Security Automation</p>
+            <div>
+              <p class="project-type">Security automation</p>
               <h3>Cloud Security Posture Auditor</h3>
               <p>
-                Offline AWS-style security scanner with YAML policy rules, severity scoring, remediation reports,
-                account scorecards, secret scanning, and Streamlit dashboard.
+                Offline AWS-style scanner with YAML policy rules, risk scoring, remediation reports, account scorecards,
+                secret scanning, Docker, CI, and dashboard views.
               </p>
-              <div class="tags">
-                <span>Python</span><span>YAML</span><span>Security</span><span>Docker</span>
+              <div class="link-row">
+                <a href="https://github.com/HaloXD1/cloud-security-posture-auditor">Repository</a>
               </div>
-              <a href="https://github.com/HaloXD1/cloud-security-posture-auditor">Repository</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section skills" id="skills" aria-labelledby="skills-title">
-        <div class="section-heading">
-          <p class="eyebrow">Technical Focus</p>
-          <h2 id="skills-title">Skills I Can Defend</h2>
+      <section class="lineage" id="lineage" aria-labelledby="lineage-title">
+        <div class="section-kicker">
+          <p class="eyebrow">Operational Thinking</p>
+          <h2 id="lineage-title">The spark: proof behaves like a pipeline.</h2>
         </div>
-        <div class="skill-list">
-          <div>
-            <h3>Data Engineering</h3>
-            <p>ETL, validation, incremental loads, SQL marts, data quality, CLI workflows.</p>
+        <div class="pipeline-map" aria-label="Data pipeline evidence map">
+          <div class="pipeline-node source">
+            <span>01</span>
+            <strong>Raw exports</strong>
+            <p>Customers, products, orders, returns.</p>
           </div>
-          <div>
-            <h3>Analytics Engineering</h3>
-            <p>DuckDB, Parquet, KPI definitions, dashboard exports, business metrics.</p>
+          <div class="pipeline-node contract">
+            <span>02</span>
+            <strong>Contracts</strong>
+            <p>Schema, IDs, ranges, duplicates, relationships.</p>
           </div>
-          <div>
-            <h3>Automation and CI</h3>
-            <p>GitHub Actions, Ruff, pytest, Docker, smoke checks, secret scanning.</p>
+          <div class="pipeline-node trust">
+            <span>03</span>
+            <strong>Trusted warehouse</strong>
+            <p>Clean SQLite tables and run metadata.</p>
+          </div>
+          <div class="pipeline-node model">
+            <span>04</span>
+            <strong>Models</strong>
+            <p>Staging, intermediate views, marts.</p>
+          </div>
+          <div class="pipeline-node diagnose">
+            <span>05</span>
+            <strong>Diagnosis</strong>
+            <p>Root cause, severity, remediation backlog.</p>
+          </div>
+          <div class="pipeline-node output">
+            <span>06</span>
+            <strong>Dashboards</strong>
+            <p>Executive metrics and proof sheet.</p>
           </div>
         </div>
       </section>
 
-      <section class="section contact" id="contact" aria-labelledby="contact-title">
-        <div class="section-heading">
+      <section class="packs" id="packs" aria-labelledby="packs-title">
+        <div class="section-kicker">
+          <p class="eyebrow">Application Assets</p>
+          <h2 id="packs-title">Not just projects. A hiring packet.</h2>
+        </div>
+        <div class="asset-grid">
+          <a class="asset-card accent-teal" href="docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf">
+            <span>01</span>
+            <strong>One-page proof sheet</strong>
+            <p>Fast recruiter scan with projects, skills, and links.</p>
+          </a>
+          <a class="asset-card accent-coral" href="docs/case_studies/retail_pipeline_case_study.md">
+            <span>02</span>
+            <strong>Technical case study</strong>
+            <p>Design decisions, controls, risks, and production upgrades.</p>
+          </a>
+          <a class="asset-card accent-violet" href="docs/company_packs/README.md">
+            <span>03</span>
+            <strong>Company packs</strong>
+            <p>IBM, PwC ETIC, AWS, DP World, and dubizzle messaging.</p>
+          </a>
+          <a class="asset-card accent-gold" href="docs/sql_interview_prep_pack.md">
+            <span>04</span>
+            <strong>SQL interview pack</strong>
+            <p>40 drills and answer patterns tied to project schemas.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="skills" aria-labelledby="skills-title">
+        <div class="section-kicker">
+          <p class="eyebrow">Defensible Skills</p>
+          <h2 id="skills-title">What I can explain under pressure.</h2>
+        </div>
+        <div class="skill-matrix">
+          <div>
+            <strong>Build</strong>
+            <p>Python pipelines, SQL marts, DuckDB/Parquet, SQLite, Streamlit, APIs.</p>
+          </div>
+          <div>
+            <strong>Trust</strong>
+            <p>Contracts, rejected-row reports, health checks, KPI reconciliation, lineage.</p>
+          </div>
+          <div>
+            <strong>Operate</strong>
+            <p>Airflow example, Docker, GitHub Actions, pytest, Ruff, smoke checks.</p>
+          </div>
+          <div>
+            <strong>Translate</strong>
+            <p>Business KPIs, case studies, company packs, recruiter proof sheets.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div>
           <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Internship Ready</h2>
+          <h2 id="contact-title">Ready for data, BI, and automation internships.</h2>
         </div>
         <div class="contact-links">
           <a href="mailto:Ahmedy999.ay@gmail.com">Ahmedy999.ay@gmail.com</a>
           <a href="https://www.linkedin.com/in/ahmed-yasser-shalaby/">LinkedIn</a>
           <a href="https://github.com/HaloXD1">GitHub</a>
+          <a href="docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf">Proof Sheet</a>
         </div>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
