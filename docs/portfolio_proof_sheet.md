@@ -12,6 +12,7 @@ LinkedIn: https://www.linkedin.com/in/ahmed-yasser-shalaby/
 | Project | Problem | Proof |
 |---|---|---|
 | Retail Data Pipeline and KPI Dashboard | Messy retail exports need trusted KPIs. | Python/SQL ETL, YAML contracts, full/incremental SQLite loads, rejected rows, KPI exports, health checks, Streamlit, Docker, CI, dbt-style SQL models, optional Airflow DAG. |
+| OpsTwin Control Tower | Business teams need to test operational decisions before disruptions damage service and cash. | React/TypeScript SPA, deterministic simulation engine, disruption scenarios, decision playbooks, Monte Carlo worker, React Flow network graph, D3 charts, DuckDB-Wasm SQL lab, Playwright-tested UI. |
 | SaaS Analytics Engineering Pipeline | SaaS teams need reliable MRR, churn, adoption, and health metrics. | DuckDB/Parquet layers, SQL marts, data contracts, incremental loading, Streamlit dashboard, Docker, CI. |
 | Cloud Security Posture Auditor | Cloud teams need safer posture checks without exposing real accounts. | Offline AWS-style snapshots, YAML policy rules, severity scoring, remediation reports, scorecards, dashboard, secret scanning. |
 | Outlook Calendar Automation | Academic deadlines are spread across email and easy to miss. | Outlook scanning, Google Calendar API, SQLite dedupe, dry-run mode, JSON audit logs. |
@@ -30,6 +31,8 @@ LinkedIn: https://www.linkedin.com/in/ahmed-yasser-shalaby/
 
 - Retail demo: https://ahmed-retail-kpi-dashboard.streamlit.app/
 - Retail repo: https://github.com/HaloXD1/data-pipeline-kpi-dashboard
+- OpsTwin demo: https://haloxd1.github.io/ops-twin-control-tower/
+- OpsTwin repo: https://github.com/HaloXD1/ops-twin-control-tower
 - SaaS demo: https://ahmed-saas-analytics-pipeline.streamlit.app/
 - SaaS repo: https://github.com/HaloXD1/saas-analytics-engineering-pipeline
 - Cloud Security demo: https://ahmed-cloud-security-auditor.streamlit.app/

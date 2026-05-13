@@ -91,6 +91,14 @@ def project_table() -> Table:
             ),
         ],
         [
+            p("<b>OpsTwin Control Tower</b>"),
+            p("Business teams need to test disruption decisions before service and cash break."),
+            p(
+                "React/TypeScript SPA, simulation engine, scenarios, decision playbooks, Monte Carlo worker, "
+                "network graph, DuckDB-Wasm SQL lab, postmortems, CI, Playwright."
+            ),
+        ],
+        [
             p("<b>SaaS Analytics Pipeline</b>"),
             p("SaaS teams need reliable MRR, churn, adoption, and health metrics."),
             p("DuckDB/Parquet layers, SQL marts, contracts, incremental loading, dashboard, Docker, CI."),
@@ -148,6 +156,8 @@ story = [
     p("Best Links", section_style),
     p("Retail demo: https://ahmed-retail-kpi-dashboard.streamlit.app/", link_style),
     p("Retail repo: https://github.com/HaloXD1/data-pipeline-kpi-dashboard", link_style),
+    p("OpsTwin demo: https://haloxd1.github.io/ops-twin-control-tower/", link_style),
+    p("OpsTwin repo: https://github.com/HaloXD1/ops-twin-control-tower", link_style),
     p("SaaS demo: https://ahmed-saas-analytics-pipeline.streamlit.app/", link_style),
     p("SaaS repo: https://github.com/HaloXD1/saas-analytics-engineering-pipeline", link_style),
     p("Cloud demo: https://ahmed-cloud-security-auditor.streamlit.app/", link_style),

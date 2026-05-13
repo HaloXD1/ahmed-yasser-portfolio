@@ -13,6 +13,7 @@ What it shows:
 - `Data Reliability Lab` positioning.
 - Role switcher for Data Engineering, BI/Analytics, and Cloud Security.
 - Flagship Retail system.
+- OpsTwin Control Tower business systems simulator.
 - SaaS and Cloud Security support projects.
 - Proof sheet, case study, company packs, and SQL prep links.
 
@@ -73,7 +74,34 @@ retail-kpi export-lineage
 streamlit run app/streamlit_dashboard.py
 ```
 
-## Project 2: SaaS Analytics Engineering Pipeline
+## Project 2: OpsTwin Control Tower
+
+Repository:
+
+- https://github.com/HaloXD1/ops-twin-control-tower
+
+Live demo:
+
+- https://haloxd1.github.io/ops-twin-control-tower/
+
+Main output:
+
+- Professional React/TypeScript SPA for enterprise operations simulation and decision support.
+
+Technical outputs:
+
+- Deterministic 26-week operations simulation.
+- Scenario engine for demand spikes, supplier delays, logistics failures, cash constraints, capacity shocks, and data quality drift.
+- Decision playbooks for safety stock, supplier diversification, expedite shipping, warehouse rebalance, and demand shaping.
+- Monte Carlo worker, React Flow network graph, D3 charts, DuckDB-Wasm SQL lab, generated postmortem, Vitest tests, Playwright checks, CI, and GitHub Pages.
+
+What to understand:
+
+- This is the differentiated product/UI/business-systems proof.
+- It breaks the pattern of pipeline-to-dashboard projects.
+- It shows decision systems thinking: scenario, action, KPI impact, risk, and explanation.
+
+## Project 3: SaaS Analytics Engineering Pipeline
 
 Repository:
 
@@ -119,7 +147,7 @@ saas-analytics run-pipeline --mode full
 streamlit run app/streamlit_dashboard.py
 ```
 
-## Project 3: Cloud Security Posture Auditor
+## Project 4: Cloud Security Posture Auditor
 
 Repository:
 
@@ -165,7 +193,7 @@ cloud-audit scan --source snapshots
 streamlit run app/streamlit_dashboard.py
 ```
 
-## Project 4: Outlook To Google Calendar Scanner
+## Project 5: Outlook To Google Calendar Scanner
 
 Repository:
 

@@ -1,6 +1,6 @@
 # Ahmed Yasser Portfolio
 
-Static portfolio landing page for Data Engineering, Analytics Engineering, and Cloud Security Automation internship positioning.
+Static portfolio landing page for Data Engineering, Analytics Engineering, Cloud Security Automation, and business systems simulation internship positioning.
 
 Live site: https://haloxd1.github.io/ahmed-yasser-portfolio/
 
@@ -45,5 +45,6 @@ Enable GitHub Pages for this repository after making it public.
 ## Featured Projects
 
 - Retail Data Pipeline and KPI Dashboard
+- OpsTwin Control Tower
 - SaaS Analytics Engineering Pipeline
 - Cloud Security Posture Auditor
