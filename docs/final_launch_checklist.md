@@ -58,6 +58,6 @@ Pin these repositories in this order:
 
 ## Update After Launch
 
-- Close each repo issue named `Deploy Streamlit demo`.
+- Done: each repo issue named `Deploy Streamlit demo` is closed.
 - Update LinkedIn Featured.
 - Update GitHub profile README if any final URL changes.

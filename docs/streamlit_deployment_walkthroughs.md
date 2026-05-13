@@ -27,7 +27,7 @@ After deployment:
 - Test Executive, Sales, Products, Customers, and Data Quality tabs.
 - README `Live Demo` is updated.
 - Paste URL into LinkedIn Featured.
-- Close issue: `Deploy Streamlit demo`.
+- GitHub issue `Deploy Streamlit demo` is closed.
 
 ## SaaS Dashboard
 
@@ -48,7 +48,7 @@ After deployment:
 - Test Executive, Revenue, Churn, Product Usage, Customer Health, and Data Quality tabs.
 - README `Live Demo` is updated.
 - Paste URL into LinkedIn Featured.
-- Close issue: `Deploy Streamlit demo`.
+- GitHub issue `Deploy Streamlit demo` is closed.
 
 ## Cloud Security Dashboard
 
@@ -69,7 +69,7 @@ After deployment:
 - Test Executive Risk Summary, Critical Findings, IAM, Network Exposure, Storage Security, Logging and Detection, and Remediation Tracker tabs.
 - README `Live Demo` is updated.
 - Paste URL into LinkedIn Featured.
-- Close issue: `Deploy Streamlit demo`.
+- GitHub issue `Deploy Streamlit demo` is closed.
 
 ## Debugging
 
