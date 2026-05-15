@@ -14,7 +14,7 @@ export function ProjectDetailPage() {
     <main className={`page-shell detail-page accent-${project.accent}`}>
       <section className="detail-hero">
         <div className="detail-copy reveal">
-          <Link className="back-link" to="/projects">
+          <Link className="back-link" to="/#work">
             &lt;- Projects
           </Link>
           <p className="eyebrow">

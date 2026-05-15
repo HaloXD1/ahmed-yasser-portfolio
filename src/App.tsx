@@ -8,7 +8,7 @@ import { SiteHeader } from "./components/SiteHeader";
 import { useScrollReveal } from "./hooks/useScrollReveal";
 import { HomePage } from "./pages/HomePage";
 import { ProjectDetailPage } from "./pages/ProjectDetailPage";
-import { ProjectsPage } from "./pages/ProjectsPage";
+
 
 function CustomCursor() {
   const [isOverRing, setIsOverRing] = useState(false);
@@ -169,9 +169,9 @@ function AppRoutes() {
       <SiteHeader />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects" element={<Navigate to="/#work" replace />} />
         <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-        <Route path="/projects.html" element={<Navigate to="/projects" replace />} />
+        <Route path="/projects.html" element={<Navigate to="/#work" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
