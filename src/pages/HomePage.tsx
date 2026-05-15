@@ -26,24 +26,24 @@ export function HomePage() {
       <section className="about" id="about" aria-labelledby="about-title">
         <div className="about-lede reveal">
           <h2 id="about-title">
-            <span>Ahmed</span><sup>*</sup> builds the boring parts that make dashboards less suspicious.
+            I turn messy business problems into working technical systems.
           </h2>
         </div>
 
         <p className="about-note reveal">
-          <span>*</span> Ahmed /ah-med/: Business Informatics student. Usually found turning messy exports into
-          something a dashboard can trust.
+          <span>*</span> I like the work before the polished screen: structure, logic, checking, and explaining what
+          the system is doing.
         </p>
 
         <div className="about-copy reveal">
           <p>
-            I am aiming at Data Engineering first, Analytics Engineering close behind, and Cloud Security as the
-            sharp edge. Basically: take the messy thing, make it dependable, then make it explain itself.
+            I am a Business Informatics student building across data, software, automation, product workflows, and
+            security.
           </p>
           <p>
-            I like the awkward middle where business questions meet technical reality: raw files, broken joins, weird
-            metrics, quiet failures, and the small panic behind "can we trust this?" These projects are my way of
-            learning that work in public.
+            My projects usually start with a practical problem: unclear data, repetitive work, risky configurations,
+            or a process that needs a better interface. I like turning that into something usable, testable, and easy
+            to understand.
           </p>
         </div>
       </section>
