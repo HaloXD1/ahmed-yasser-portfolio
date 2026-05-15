@@ -12,18 +12,17 @@ export function ProjectDetailPage() {
 
   return (
     <main className={`page-shell detail-page accent-${project.accent}`}>
-      <Link className="back-link" to="/#work">
-        &lt;- Projects
-      </Link>
-      <p className="eyebrow">
-        {project.number} / {project.category}
-      </p>
-      <h1 className="reveal">{project.title}</h1>
-
       <section className="detail-hero">
         <div className="detail-copy reveal">
+          <Link className="back-link" to="/#work">
+            &lt;- Projects
+          </Link>
+          <p className="eyebrow">
+            {project.number} / {project.category}
+          </p>
+          <h1>{project.title}</h1>
           <p>{project.summary}</p>
-          <ProjectLinks project={project} includeProofSheet />
+          <ProjectLinks project={project} />
         </div>
         <div className="detail-visual">
           <img src={project.previewImage} alt="" />

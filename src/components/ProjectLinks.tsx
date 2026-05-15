@@ -9,15 +9,7 @@ type ProjectLinksProps = {
 
 export function ProjectLinks({ project, includeProofSheet = false, compact = false }: ProjectLinksProps) {
   const baseLinks = compact ? project.links.slice(0, 2) : project.links;
-  const links = includeProofSheet
-    ? [
-        ...baseLinks,
-        {
-          label: "Proof sheet",
-          href: publicUrl("docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf")
-        }
-      ]
-    : baseLinks;
+  const links = baseLinks;
 
   return (
     <div className="button-row">

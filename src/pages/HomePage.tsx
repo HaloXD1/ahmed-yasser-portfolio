@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { Mascot } from "../components/Mascot";
 import { WorkSection } from "../components/WorkSection";
 
 export function HomePage() {
+  const [copied, setCopied] = useState(false);
   const handleCopyEmail = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigator.clipboard.writeText("Ahmedy999.ay@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -56,7 +60,7 @@ export function HomePage() {
             <a href="https://github.com/AhmedYasserShalaby" target="_blank" rel="noreferrer">GitHub</a>
           </div>
           <a className="email-link" href="mailto:Ahmedy999.ay@gmail.com" onClick={handleCopyEmail}>
-            <span className="email-arrow">↗</span> Ahmedy999.ay@gmail.com
+            <span className="email-arrow">↗</span> {copied ? "Copied!" : "Ahmedy999.ay@gmail.com"}
           </a>
         </div>
       </section>
