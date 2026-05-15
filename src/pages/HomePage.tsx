@@ -17,7 +17,7 @@ export function HomePage() {
         <Mascot />
         <div className="hero-copy">
           <h1 id="hero-title" className="reveal">
-            Messy data, made useful.
+            Messy problems, working systems.
           </h1>
         </div>
         <span className="year-mark">©2026</span>

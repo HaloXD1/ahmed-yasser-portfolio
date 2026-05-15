@@ -5,7 +5,7 @@ const base = "/ahmed-yasser-portfolio";
 test("home renders the motion portfolio shell", async ({ page }) => {
   await page.goto(`${base}/`);
 
-  await expect(page.getByRole("heading", { name: /Messy data, made useful/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Messy problems, working systems/i })).toBeVisible();
   await expect(page.locator(".noise-layer")).toBeVisible();
   await expect(page.locator("canvas.data-field")).toBeVisible();
 
@@ -47,6 +47,6 @@ test("reduced motion keeps content readable", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto(`${base}/`);
 
-  await expect(page.getByRole("heading", { name: /Messy data, made useful/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Messy problems, working systems/i })).toBeVisible();
   await expect(page.locator("canvas.data-field")).toBeHidden();
 });
