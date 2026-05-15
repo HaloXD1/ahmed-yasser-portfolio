@@ -1,5 +1,4 @@
 import { Mascot } from "../components/Mascot";
-import { ProofConsole } from "../components/ProofConsole";
 import { WorkSection } from "../components/WorkSection";
 
 export function HomePage() {
@@ -44,8 +43,6 @@ export function HomePage() {
           </p>
         </div>
       </section>
-
-      <ProofConsole />
 
       <WorkSection />
 
