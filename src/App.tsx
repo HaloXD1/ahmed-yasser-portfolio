@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -139,7 +139,7 @@ function ScrollManager() {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (location.hash) {
       const id = window.decodeURIComponent(location.hash.slice(1));
       window.setTimeout(() => {
