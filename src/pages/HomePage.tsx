@@ -3,12 +3,16 @@ import { WorkSection } from "../components/WorkSection";
 import { publicUrl } from "../utils/urls";
 
 export function HomePage() {
+  const handleCopyEmail = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("Ahmedy999.ay@gmail.com");
+  };
+
   return (
     <main id="hey">
       <section className="hero" aria-labelledby="hero-title">
         <Mascot />
         <div className="hero-copy">
-          <p className="reveal">Ahmed Yasser Shalaby / Business Informatics / Summer 2026 internships</p>
           <h1 id="hero-title" className="reveal">
             Data systems that hold up.
           </h1>
@@ -44,17 +48,17 @@ export function HomePage() {
       <WorkSection />
 
       <section className="contact" id="contact" aria-labelledby="contact-title">
-        <div className="contact-copy reveal">
-          <h2 id="contact-title">Want proof?</h2>
-          <a className="email-link" href="mailto:Ahmedy999.ay@gmail.com">
-            Ahmedy999.ay@gmail.com
+        <h2 id="contact-title">
+          Want to<br />reach out?
+        </h2>
+        <div className="contact-bottom">
+          <div className="contact-links-row" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/ahmed-yasser-shalaby/">LinkedIn</a>
+            <a href="https://github.com/HaloXD1">GitHub</a>
+          </div>
+          <a className="email-link" href="mailto:Ahmedy999.ay@gmail.com" onClick={handleCopyEmail}>
+            <span className="email-arrow">↗</span> Ahmedy999.ay@gmail.com
           </a>
-        </div>
-        <div className="contact-links reveal" aria-label="Portfolio links">
-          <a href={publicUrl("docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf")}>Proof Sheet</a>
-          <a href={publicUrl("projects.html")}>Project Guide</a>
-          <a href="https://github.com/HaloXD1">GitHub</a>
-          <a href="https://www.linkedin.com/in/ahmed-yasser-shalaby/">LinkedIn</a>
         </div>
       </section>
     </main>

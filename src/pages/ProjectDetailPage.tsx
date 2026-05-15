@@ -62,18 +62,6 @@ export function ProjectDetailPage() {
         <p className="eyebrow">Interview line</p>
         <blockquote>{project.interviewPitch}</blockquote>
       </section>
-
-      <section className="related-section" aria-label="Related projects">
-        <p className="eyebrow reveal">Next proof</p>
-        <div className="related-grid">
-          {relatedProjects.map((item) => (
-            <Link key={item.slug} className={`related-link accent-${item.accent} reveal`} to={`/projects/${item.slug}`}>
-              <img src={item.previewImage} alt="" loading="lazy" />
-              <span>{item.shortTitle}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
     </main>
   );
 }

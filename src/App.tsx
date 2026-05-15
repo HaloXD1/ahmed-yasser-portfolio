@@ -1,5 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import Lenis from "lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { BackgroundEffects } from "./components/BackgroundEffects";
 import { SiteHeader } from "./components/SiteHeader";
 import { useScrollReveal } from "./hooks/useScrollReveal";
@@ -7,12 +10,133 @@ import { HomePage } from "./pages/HomePage";
 import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 
+function CustomCursor() {
+  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [isOverRing, setIsOverRing] = useState(false);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
+  const targetPos = useRef({ x: -100, y: -100 });
+  const currentPos = useRef({ x: -100, y: -100 });
+  const isOverRingRef = useRef(false);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      targetPos.current = { x: e.clientX, y: e.clientY };
+      setPosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const lerp = (start: number, end: number, factor: number) => start + (end - start) * factor;
+
+    const animate = () => {
+      currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, 0.15);
+      currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, 0.15);
+
+      if (dotRef.current) {
+        dotRef.current.style.left = `${currentPos.current.x - 5}px`;
+        dotRef.current.style.top = `${currentPos.current.y - 5}px`;
+      }
+      if (ringRef.current) {
+        if (isOverRingRef.current) {
+          ringRef.current.style.left = `${currentPos.current.x - 45}px`;
+          ringRef.current.style.top = `${currentPos.current.y - 45}px`;
+        } else {
+          ringRef.current.style.left = `-200px`;
+          ringRef.current.style.top = `-200px`;
+        }
+      }
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleRingHover = (e: CustomEvent) => {
+      isOverRingRef.current = e.detail;
+      setIsOverRing(e.detail);
+      
+      if (e.detail && ringRef.current) {
+        ringRef.current.style.left = `${targetPos.current.x - 45}px`;
+        ringRef.current.style.top = `${targetPos.current.y - 45}px`;
+      }
+    };
+
+    window.addEventListener("ringHover", handleRingHover as EventListener);
+    return () => window.removeEventListener("ringHover", handleRingHover as EventListener);
+  }, []);
+
+  return (
+    <>
+      <div
+        ref={dotRef}
+        className="custom-cursor-dot"
+        style={{
+          position: "fixed",
+          left: -100,
+          top: -100,
+          pointerEvents: "none",
+          zIndex: 9999
+        }}
+      />
+      <div
+        ref={ringRef}
+        className="custom-cursor-ring"
+        style={{
+          position: "fixed",
+          left: -100,
+          top: -100,
+          pointerEvents: "none",
+          zIndex: 9999
+        }}
+      >
+        ROTATE ME
+      </div>
+    </>
+  );
+}
+
+gsap.registerPlugin(ScrollTrigger);
+
 const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
 
 function ScrollManager() {
   const location = useLocation();
 
   useScrollReveal(`${location.pathname}${location.hash}`);
+
+  // Lenis Smooth Scroll Initialization
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+    });
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      lenis.destroy();
+      gsap.ticker.remove(lenis.raf);
+    };
+  }, []);
 
   useEffect(() => {
     if (location.hash) {
@@ -48,6 +172,7 @@ function AppRoutes() {
 export default function App() {
   return (
     <BrowserRouter basename={basename}>
+      <CustomCursor />
       <BackgroundEffects />
       <AppRoutes />
     </BrowserRouter>
