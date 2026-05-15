@@ -1,5 +1,3 @@
-import heroArt from "../../assets/data_rings_hero.png";
-import contactArt from "../../assets/data_rings_contact.png";
 import { Mascot } from "../components/Mascot";
 import { WorkSection } from "../components/WorkSection";
 import { publicUrl } from "../utils/urls";
@@ -9,9 +7,6 @@ export function HomePage() {
     <main id="hey">
       <section className="hero" aria-labelledby="hero-title">
         <Mascot />
-        <div className="hero-media" aria-hidden="true">
-          <img src={heroArt} alt="" />
-        </div>
         <div className="hero-copy">
           <p className="reveal">Ahmed Yasser Shalaby / Business Informatics / Summer 2026 internships</p>
           <h1 id="hero-title" className="reveal">
@@ -49,7 +44,6 @@ export function HomePage() {
       <WorkSection />
 
       <section className="contact" id="contact" aria-labelledby="contact-title">
-        <img className="contact-art" src={contactArt} alt="" />
         <div className="contact-copy reveal">
           <h2 id="contact-title">Want proof?</h2>
           <a className="email-link" href="mailto:Ahmedy999.ay@gmail.com">

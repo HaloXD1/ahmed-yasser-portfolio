@@ -165,21 +165,6 @@ main {
   position: relative;
 }
 
-.hero-media {
-  inset: 76px 0 auto;
-  opacity: 0.66;
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-}
-
-.hero-media img {
-  height: min(62svh, 650px);
-  object-fit: cover;
-  object-position: center top;
-  width: 100%;
-}
-
 .hero-copy {
   align-content: end;
   display: grid;
@@ -518,18 +503,6 @@ h1 {
   grid-template-rows: 1fr auto;
   overflow: hidden;
   position: relative;
-}
-
-.contact-art {
-  bottom: 90px;
-  left: 26%;
-  max-width: 760px;
-  mix-blend-mode: multiply;
-  opacity: 0.72;
-  pointer-events: none;
-  position: absolute;
-  width: 52vw;
-  z-index: -1;
 }
 
 .contact h2 {
@@ -913,10 +886,6 @@ h1 {
     min-height: calc(100svh - 178px);
   }
 
-  .hero-media img {
-    height: 48svh;
-  }
-
   h1 {
     font-size: clamp(58px, 22vw, 104px);
   }
@@ -963,13 +932,6 @@ h1 {
     margin-left: 0;
     overflow-wrap: anywhere;
     text-decoration-thickness: 2px;
-  }
-
-  .contact-art {
-    margin: 44px 0 18px;
-    max-width: none;
-    position: static;
-    width: 100%;
   }
 
   .page-shell {
