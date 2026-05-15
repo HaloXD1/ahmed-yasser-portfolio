@@ -18,13 +18,12 @@ export function useScrollReveal(key: string) {
       }
 
       elements.forEach((element) => {
-        gsap.fromTo(
+        gsap.from(
           element,
-          { autoAlpha: 0, y: 58, rotateX: 5 },
           {
-            autoAlpha: 1,
-            y: 0,
-            rotateX: 0,
+            autoAlpha: 0,
+            y: 58,
+            rotateX: 5,
             duration: 1.05,
             ease: "expo.out",
             scrollTrigger: {
@@ -37,17 +36,34 @@ export function useScrollReveal(key: string) {
       });
 
       gsap.utils.toArray<HTMLElement>(".line-reveal").forEach((line) => {
-        gsap.fromTo(
+        gsap.from(
           line,
-          { scaleX: 0.2 },
           {
-            scaleX: 1,
+            scaleX: 0.2,
             duration: 0.9,
             ease: "expo.out",
             transformOrigin: "left center",
             scrollTrigger: {
               trigger: line,
               start: "top 88%",
+              once: true
+            }
+          }
+        );
+      });
+
+      // Work Row Reveal
+      gsap.utils.toArray<HTMLElement>(".work-row").forEach((row) => {
+        gsap.from(
+          row,
+          {
+            autoAlpha: 0,
+            y: 30,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: row,
+              start: "top 90%",
               once: true
             }
           }
