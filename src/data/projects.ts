@@ -2,14 +2,12 @@ import cloudPreview from "../../assets/cloud_security_dashboard_demo.gif";
 import egxHoldoutExcessChart from "../../assets/egx_holdout_excess.png";
 import egxHoldoutChart from "../../assets/egx_holdout_validation.png";
 import egxMembershipChart from "../../assets/egx_membership_impact.png";
-import egxPreview from "../../assets/egx_research_demo.gif";
 import egxRiskMapChart from "../../assets/egx_risk_adjusted_map.png";
 import opsPreview from "../../assets/opstwin_command_center.png";
-import protocolPreview from "../../assets/protocol_app_demo.gif";
-import protocolDashboardImage from "../../assets/protocol_dashboard.jpg";
-import protocolFocusImage from "../../assets/protocol_focus.jpg";
-import protocolMarketImage from "../../assets/protocol_market.jpg";
-import protocolTerminalImage from "../../assets/protocol_terminal.jpg";
+import protocolDashboardImage from "../../assets/protocol_dashboard.png";
+import protocolFocusImage from "../../assets/protocol_focus.png";
+import protocolMarketImage from "../../assets/protocol_market.png";
+import protocolTerminalImage from "../../assets/protocol_terminal.png";
 import retailPreview from "../../assets/retail_dashboard_demo.gif";
 import saasPreview from "../../assets/saas_dashboard_demo.gif";
 
@@ -181,7 +179,7 @@ export const projects: Project[] = [
       "Uses holdout checks so the analysis is not only in-sample.",
       "Shows return, drawdown, and risk-adjusted context together."
     ],
-    previewImage: egxPreview,
+    previewImage: egxMembershipChart,
     gallery: [
       {
         src: egxMembershipChart,
@@ -236,7 +234,7 @@ export const projects: Project[] = [
       "Uses a reward market to make progress feel concrete.",
       "Shows product and frontend execution alongside the data projects."
     ],
-    previewImage: protocolPreview,
+    previewImage: protocolDashboardImage,
     gallery: [
       {
         src: protocolDashboardImage,

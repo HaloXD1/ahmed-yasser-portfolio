@@ -753,6 +753,28 @@ h1 {
   -webkit-backface-visibility: hidden;
 }
 
+.work-preview.fit-contain,
+.project-transition-card.fit-contain,
+.detail-visual.fit-contain,
+.work-mobile-preview.fit-contain {
+  background: #f8f5ed;
+}
+
+.work-preview.tone-dark,
+.project-transition-card.tone-dark,
+.detail-visual.tone-dark,
+.work-mobile-preview.tone-dark {
+  background: #151311;
+}
+
+.work-preview.fit-contain img,
+.project-transition-card.fit-contain img,
+.detail-visual.fit-contain img,
+.work-mobile-preview.fit-contain {
+  object-fit: contain;
+  padding: clamp(10px, 1.4vw, 18px);
+}
+
 .work-preview span {
   background: rgba(16, 20, 18, 0.86);
   bottom: 0;
@@ -998,6 +1020,53 @@ h1 {
   aspect-ratio: 16 / 11;
   border: 2px solid var(--line);
   overflow: hidden;
+  position: relative;
+}
+
+.detail-visual.fit-contain:hover img {
+  transform: none;
+}
+
+.detail-carousel-controls {
+  align-items: center;
+  background: rgba(16, 20, 18, 0.88);
+  border: 1px solid rgba(244, 239, 226, 0.24);
+  bottom: 14px;
+  color: var(--paper);
+  display: inline-flex;
+  gap: 10px;
+  padding: 8px;
+  position: absolute;
+  right: 14px;
+  z-index: 2;
+}
+
+.detail-carousel-controls button {
+  align-items: center;
+  background: var(--paper);
+  border: 0;
+  color: var(--ink);
+  display: inline-flex;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 900;
+  height: 38px;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  width: 38px;
+}
+
+.detail-carousel-controls button:hover {
+  background: var(--row-accent);
+  color: var(--paper);
+}
+
+.detail-carousel-controls span {
+  font-size: 12px;
+  font-weight: 900;
+  min-width: 42px;
+  text-align: center;
 }
 
 .case-grid {

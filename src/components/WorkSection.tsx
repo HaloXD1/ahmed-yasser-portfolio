@@ -15,6 +15,16 @@ function targetIsLink(eventTarget: EventTarget | null) {
   return eventTarget instanceof Element && Boolean(eventTarget.closest("a"));
 }
 
+function previewClassName(project: Project) {
+  const preview = project.gallery?.[0];
+  return [
+    preview?.fit === "contain" ? "fit-contain" : "",
+    `tone-${preview?.tone ?? "light"}`
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
 export function WorkSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
@@ -204,13 +214,18 @@ export function WorkSection() {
             <p>{project.stack.join("/")}</p>
             <p>{project.summary}</p>
             <ProjectLinks project={project} compact />
-            <img className="work-mobile-preview" src={project.previewImage} alt="" loading="lazy" />
+            <img
+              className={`work-mobile-preview ${previewClassName(project)}`}
+              src={project.previewImage}
+              alt=""
+              loading="lazy"
+            />
             <div className="line-reveal" />
           </article>
         ))}
       </div>
 
-      <div ref={previewRef} className="work-preview" aria-hidden="true">
+      <div ref={previewRef} className={`work-preview ${activeProject ? previewClassName(activeProject) : ""}`} aria-hidden="true">
         {activeProject && (
           <img src={activeProject.previewImage} alt="" />
         )}
@@ -218,7 +233,7 @@ export function WorkSection() {
 
       {transition && (
         <>
-          <div ref={transitionRef} className="project-transition-card" aria-hidden="true">
+          <div ref={transitionRef} className={`project-transition-card ${previewClassName(transition.project)}`} aria-hidden="true">
             <img src={transition.project.previewImage} alt="" />
           </div>
           <div ref={overlayRef} className="project-transition-overlay" aria-hidden="true" />
@@ -231,7 +246,7 @@ export function WorkSection() {
             <div className={`page-shell detail-page accent-${transition.project.accent}`}>
               <section className="detail-hero">
                 <div className="detail-copy"></div>
-                <div className="detail-visual" ref={dummyTargetRef}></div>
+                <div className={`detail-visual ${previewClassName(transition.project)}`} ref={dummyTargetRef}></div>
               </section>
             </div>
           </div>

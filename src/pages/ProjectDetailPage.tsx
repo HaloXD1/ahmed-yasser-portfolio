@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ProjectLinks } from "../components/ProjectLinks";
 import { getProject } from "../data/projects";
@@ -5,10 +6,29 @@ import { getProject } from "../data/projects";
 export function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProject(slug);
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    setActiveImage(0);
+  }, [slug]);
 
   if (!project) {
     return <Navigate to="/projects" replace />;
   }
+
+  const carouselImages = project.gallery ?? [];
+  const selectedImage = carouselImages[activeImage];
+  const hasCarousel = carouselImages.length > 1;
+  const visualTone = selectedImage?.tone ?? "light";
+  const visualFit = selectedImage?.fit ?? "cover";
+
+  const showPreviousImage = () => {
+    setActiveImage((current) => (current === 0 ? carouselImages.length - 1 : current - 1));
+  };
+
+  const showNextImage = () => {
+    setActiveImage((current) => (current + 1) % carouselImages.length);
+  };
 
   return (
     <main className={`page-shell detail-page accent-${project.accent}`}>
@@ -24,8 +44,21 @@ export function ProjectDetailPage() {
           <p>{project.summary}</p>
           <ProjectLinks project={project} />
         </div>
-        <div className="detail-visual">
-          <img src={project.previewImage} alt="" />
+        <div className={`detail-visual tone-${visualTone} fit-${visualFit}`}>
+          <img src={selectedImage?.src ?? project.previewImage} alt={selectedImage?.alt ?? ""} />
+          {hasCarousel ? (
+            <div className="detail-carousel-controls" aria-label={`${project.title} image controls`}>
+              <button type="button" aria-label="Previous image" onClick={showPreviousImage}>
+                &lt;
+              </button>
+              <span>
+                {activeImage + 1} / {carouselImages.length}
+              </span>
+              <button type="button" aria-label="Next image" onClick={showNextImage}>
+                &gt;
+              </button>
+            </div>
+          ) : null}
         </div>
       </section>
 
