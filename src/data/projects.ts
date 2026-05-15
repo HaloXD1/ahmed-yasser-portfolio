@@ -1,7 +1,15 @@
 import cloudPreview from "../../assets/cloud_security_dashboard_demo.gif";
-import egxPreview from "../../assets/egx_research_preview.svg";
+import egxHoldoutExcessChart from "../../assets/egx_holdout_excess.png";
+import egxHoldoutChart from "../../assets/egx_holdout_validation.png";
+import egxMembershipChart from "../../assets/egx_membership_impact.png";
+import egxPreview from "../../assets/egx_research_preview.png";
+import egxRiskMapChart from "../../assets/egx_risk_adjusted_map.png";
 import opsPreview from "../../assets/opstwin_command_center.png";
-import protocolPreview from "../../assets/protocol_preview.svg";
+import protocolPreview from "../../assets/protocol_app_preview.jpg";
+import protocolDashboardImage from "../../assets/protocol_dashboard.jpg";
+import protocolFocusImage from "../../assets/protocol_focus.jpg";
+import protocolMarketImage from "../../assets/protocol_market.jpg";
+import protocolTerminalImage from "../../assets/protocol_terminal.jpg";
 import retailPreview from "../../assets/retail_dashboard_demo.gif";
 import saasPreview from "../../assets/saas_dashboard_demo.gif";
 
@@ -9,6 +17,14 @@ export type ProjectLink = {
   label: string;
   href: string;
   primary?: boolean;
+};
+
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  caption: string;
+  fit?: "cover" | "contain";
+  tone?: "light" | "dark";
 };
 
 export type Project = {
@@ -25,6 +41,7 @@ export type Project = {
   whyItMatters: string;
   highlights: string[];
   previewImage: string;
+  gallery?: ProjectImage[];
   accent: "teal" | "blue" | "coral" | "gold";
   links: ProjectLink[];
   secondary?: boolean;
@@ -152,19 +169,49 @@ export const projects: Project[] = [
     category: "Financial research tooling",
     type: "Research workflow",
     stack: ["Python", "Financial data", "Research", "Testing"],
-    summary: "A Python research toolkit for making Egyptian Exchange analysis less one-off.",
+    summary: "A Python toolkit for turning messy EGX data into repeatable research runs.",
     intent:
-      "I built this because financial research can turn into scattered notebooks and half-repeatable steps very quickly. The goal was to make the research process more reusable and easier to inspect later.",
+      "I built this because EGX research can change a lot depending on the data source, index membership history, and portfolio rules. The goal was not to pretend one chart is the truth; it was to make the assumptions visible.",
     howItWorks:
-      "The toolkit organizes scripts, helpers, and tests around repeatable market research workflows for Egyptian Exchange analysis.",
+      "A CLI workflow normalizes market data, runs strategy configurations, records backtest outputs, compares holdout periods, and saves charts and run notes for later review.",
     whyItMatters:
-      "This is not a market prediction project. It is about workflow discipline: scripts, helpers, and tests instead of doing the same analysis manually every time.",
+      "This is not a stock-picking promise. It is a research system that shows how data quality, risk, and validation can change the story before anyone trusts the result.",
     highlights: [
-      "Turns recurring research steps into reusable scripts.",
-      "Keeps financial-data analysis organized and testable.",
-      "Adds business-data context beyond dashboards."
+      "Compares results across data assumptions instead of hiding them.",
+      "Uses holdout checks so the analysis is not only in-sample.",
+      "Shows return, drawdown, and risk-adjusted context together."
     ],
     previewImage: egxPreview,
+    gallery: [
+      {
+        src: egxMembershipChart,
+        alt: "EGX chart comparing strategy results across membership assumptions.",
+        caption: "Data provenance can flip the result, so the toolkit makes membership assumptions visible.",
+        fit: "contain",
+        tone: "light"
+      },
+      {
+        src: egxHoldoutChart,
+        alt: "EGX holdout validation chart comparing research runs against a baseline.",
+        caption: "Holdout validation checks whether a run still makes sense outside the tuning window.",
+        fit: "contain",
+        tone: "light"
+      },
+      {
+        src: egxHoldoutExcessChart,
+        alt: "EGX holdout excess ladder chart.",
+        caption: "The ladder shows which research variants added value after the baseline comparison.",
+        fit: "contain",
+        tone: "light"
+      },
+      {
+        src: egxRiskMapChart,
+        alt: "EGX risk map plotting return against drawdown.",
+        caption: "The risk map keeps drawdown beside return, because a bigger number is not automatically a better system.",
+        fit: "contain",
+        tone: "light"
+      }
+    ],
     accent: "blue",
     secondary: true,
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/egx-research", primary: true }]
@@ -177,19 +224,49 @@ export const projects: Project[] = [
     category: "Application building",
     type: "Productivity app",
     stack: ["App development", "Product workflows", "UI", "Tests"],
-    summary: "A productivity app that shows I can build around a user workflow, not only around data files.",
+    summary: "A mobile productivity app built around habits, focus sessions, rewards, and daily feedback.",
     intent:
-      "Protocol sits outside the main data projects on purpose. I wanted one project that shows I can think through a user workflow and build an actual app surface, not only pipelines and dashboards.",
+      "Protocol sits outside the main data projects on purpose. I wanted to build something with a real product loop: check the day, complete habits, start a focus session, earn points, and see progress without feeling like it belongs in a spreadsheet.",
     howItWorks:
-      "The app organizes productivity workflows through a user-facing interface, with public code and tests supporting the core behavior.",
+      "The app combines a daily dashboard, habit tracking, a focus timer, a reward market, inventory, and a terminal-style diagnostics view into one mobile-first workflow.",
     whyItMatters:
-      "It adds range. The main direction is still data, but this shows I can reason about product structure, interface behavior, and general software execution too.",
+      "It adds range to the portfolio. It shows I can think about product behavior, interface detail, state, and user motivation, not only backend pipelines and analysis scripts.",
     highlights: [
-      "Shows app-building range outside data pipelines.",
-      "Focuses on workflow and product structure.",
-      "Adds software execution context to the portfolio."
+      "Turns daily habits into a visible feedback loop.",
+      "Uses a reward market to make progress feel concrete.",
+      "Shows product and frontend execution alongside the data projects."
     ],
     previewImage: protocolPreview,
+    gallery: [
+      {
+        src: protocolDashboardImage,
+        alt: "Protocol mobile dashboard with market pulse, daily habits, and command cards.",
+        caption: "The dashboard pulls market pulse, habits, points, and daily commands into one starting screen.",
+        fit: "contain",
+        tone: "dark"
+      },
+      {
+        src: protocolTerminalImage,
+        alt: "Protocol terminal diagnostics screen showing daily commits and activity.",
+        caption: "The diagnostics view turns activity history into something reviewable instead of hidden.",
+        fit: "contain",
+        tone: "dark"
+      },
+      {
+        src: protocolMarketImage,
+        alt: "Protocol reward market and inventory screen.",
+        caption: "The market gives the habit system a simple reward loop with points, history, and inventory.",
+        fit: "contain",
+        tone: "dark"
+      },
+      {
+        src: protocolFocusImage,
+        alt: "Protocol focus timer screen for a study session.",
+        caption: "The focus screen makes the session feel intentional, with a timer and launch checklist.",
+        fit: "contain",
+        tone: "dark"
+      }
+    ],
     accent: "coral",
     secondary: true,
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/Protocol", primary: true }]

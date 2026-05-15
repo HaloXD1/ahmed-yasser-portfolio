@@ -55,6 +55,32 @@ export function ProjectDetailPage() {
           ))}
         </ol>
       </section>
+
+      {project.gallery?.length ? (
+        <section className="project-gallery reveal" aria-label={`${project.title} visuals`}>
+          <div className="project-gallery-heading">
+            <p className="eyebrow">Project visuals</p>
+            <h2>Useful proof, not decoration.</h2>
+          </div>
+          <div className="project-gallery-grid">
+            {project.gallery.map((image, index) => (
+              <figure
+                className={[
+                  index === 0 ? "featured" : "",
+                  image.fit === "contain" ? "fit-contain" : "",
+                  `tone-${image.tone ?? "light"}`
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                key={image.src}
+              >
+                <img src={image.src} alt={image.alt} />
+                <figcaption>{image.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }
