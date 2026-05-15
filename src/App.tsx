@@ -11,19 +11,17 @@ import { ProjectDetailPage } from "./pages/ProjectDetailPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 
 function CustomCursor() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isOverRing, setIsOverRing] = useState(false);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const targetPos = useRef({ x: -100, y: -100 });
-  const currentPos = useRef({ x: -100, y: -100 });
+  const targetPos = useRef({ x: -200, y: -200 });
+  const currentPos = useRef({ x: -200, y: -200 });
   const isOverRingRef = useRef(false);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      setPosition({ x: e.clientX, y: e.clientY });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -38,17 +36,12 @@ function CustomCursor() {
       currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, 0.15);
 
       if (dotRef.current) {
-        dotRef.current.style.left = `${currentPos.current.x - 5}px`;
-        dotRef.current.style.top = `${currentPos.current.y - 5}px`;
+        dotRef.current.style.left = `${currentPos.current.x}px`;
+        dotRef.current.style.top = `${currentPos.current.y}px`;
       }
-      if (ringRef.current) {
-        if (isOverRingRef.current) {
-          ringRef.current.style.left = `${currentPos.current.x - 45}px`;
-          ringRef.current.style.top = `${currentPos.current.y - 45}px`;
-        } else {
-          ringRef.current.style.left = `-200px`;
-          ringRef.current.style.top = `-200px`;
-        }
+      if (ringRef.current && isOverRingRef.current) {
+        ringRef.current.style.left = `${currentPos.current.x}px`;
+        ringRef.current.style.top = `${currentPos.current.y}px`;
       }
 
       rafRef.current = requestAnimationFrame(animate);
@@ -64,10 +57,13 @@ function CustomCursor() {
     const handleRingHover = (e: CustomEvent) => {
       isOverRingRef.current = e.detail;
       setIsOverRing(e.detail);
-      
+
       if (e.detail && ringRef.current) {
-        ringRef.current.style.left = `${targetPos.current.x - 45}px`;
-        ringRef.current.style.top = `${targetPos.current.y - 45}px`;
+        // Snap ring to current cursor position immediately on first hover
+        ringRef.current.style.left = `${targetPos.current.x}px`;
+        ringRef.current.style.top = `${targetPos.current.y}px`;
+        currentPos.current.x = targetPos.current.x;
+        currentPos.current.y = targetPos.current.y;
       }
     };
 
@@ -79,24 +75,26 @@ function CustomCursor() {
     <>
       <div
         ref={dotRef}
-        className="custom-cursor-dot"
+        className={`custom-cursor-dot${isOverRing ? " hidden" : ""}`}
         style={{
           position: "fixed",
-          left: -100,
-          top: -100,
+          left: -200,
+          top: -200,
           pointerEvents: "none",
-          zIndex: 9999
+          zIndex: 9999,
+          transform: "translate(-50%, -50%)"
         }}
       />
       <div
         ref={ringRef}
-        className="custom-cursor-ring"
+        className={`custom-cursor-ring${isOverRing ? " visible" : ""}`}
         style={{
           position: "fixed",
-          left: -100,
-          top: -100,
+          left: -200,
+          top: -200,
           pointerEvents: "none",
-          zIndex: 9999
+          zIndex: 9999,
+          transform: "translate(-50%, -50%)"
         }}
       >
         ROTATE ME

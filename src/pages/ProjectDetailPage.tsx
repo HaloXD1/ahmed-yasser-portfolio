@@ -1,6 +1,6 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ProjectLinks } from "../components/ProjectLinks";
-import { getProject, projects } from "../data/projects";
+import { getProject } from "../data/projects";
 
 export function ProjectDetailPage() {
   const { slug } = useParams();
@@ -9,8 +9,6 @@ export function ProjectDetailPage() {
   if (!project) {
     return <Navigate to="/projects" replace />;
   }
-
-  const relatedProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 3);
 
   return (
     <main className={`page-shell detail-page accent-${project.accent}`}>

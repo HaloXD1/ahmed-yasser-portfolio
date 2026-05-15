@@ -1,6 +1,6 @@
 import { Mascot } from "../components/Mascot";
+import { ProofConsole } from "../components/ProofConsole";
 import { WorkSection } from "../components/WorkSection";
-import { publicUrl } from "../utils/urls";
 
 export function HomePage() {
   const handleCopyEmail = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -45,6 +45,8 @@ export function HomePage() {
         </div>
       </section>
 
+      <ProofConsole />
+
       <WorkSection />
 
       <section className="contact" id="contact" aria-labelledby="contact-title">
@@ -54,7 +56,7 @@ export function HomePage() {
         <div className="contact-bottom">
           <div className="contact-links-row" aria-label="Social links">
             <a href="https://www.linkedin.com/in/ahmed-yasser-shalaby/">LinkedIn</a>
-            <a href="https://github.com/HaloXD1">GitHub</a>
+            <a href="https://github.com/AhmedYasserShalaby">GitHub</a>
           </div>
           <a className="email-link" href="mailto:Ahmedy999.ay@gmail.com" onClick={handleCopyEmail}>
             <span className="email-arrow">↗</span> Ahmedy999.ay@gmail.com

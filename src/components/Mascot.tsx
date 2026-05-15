@@ -225,8 +225,10 @@ function FlowPacket({
       return;
     }
 
+    const safeDelta = Math.min(delta, 0.1);
+
     if (!reducedMotion && !motionPaused) {
-      angleRef.current += speed * delta;
+      angleRef.current += speed * safeDelta;
       if (angleRef.current > Math.PI * 2) {
         angleRef.current -= Math.PI * 2;
       }
@@ -279,10 +281,12 @@ function DataOrbitModel({
       return;
     }
 
+    const safeDelta = Math.min(delta, 0.1);
+
     if (!reducedMotion && !motionPaused) {
-      spinRef.current.x += config.spin[0] * delta;
-      spinRef.current.y += config.spin[1] * delta;
-      spinRef.current.z += config.spin[2] * delta;
+      spinRef.current.x += config.spin[0] * safeDelta;
+      spinRef.current.y += config.spin[1] * safeDelta;
+      spinRef.current.z += config.spin[2] * safeDelta;
       if (spinRef.current.x > Math.PI * 2) {
         spinRef.current.x -= Math.PI * 2;
       }
@@ -403,12 +407,13 @@ function MovingOrbit({
       return;
     }
 
+    const safeDelta = Math.min(delta, 0.1);
     const t = state.clock.elapsedTime + config.phase;
     const targetScale = active || hovered ? scale * 1.055 : scale;
     group.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.08);
 
     if (!dragging.current && !reducedMotion && !motionPaused) {
-      group.position.x += config.speed * delta * (compact ? 0.7 : 1);
+      group.position.x += config.speed * safeDelta * (compact ? 0.7 : 1);
       group.position.z = config.z + Math.sin(t * 0.22) * 0.08;
 
       if (group.position.x > wrapAt) {
