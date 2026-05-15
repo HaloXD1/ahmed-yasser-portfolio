@@ -16,6 +16,59 @@
 }
 
 * {
+  cursor: none !important;
+}
+
+html, body {
+  cursor: none !important;
+  cursor: -webkit-none !important;
+  -webkit-cursor: none;
+  -moz-cursor: none;
+  -ms-cursor: none;
+}
+
+.custom-cursor-dot {
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.9);
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.custom-cursor-ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  color: black;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: cursor-pulse 1.5s ease-in-out infinite;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes cursor-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.2);
+  }
+}
+
+* {
   box-sizing: border-box;
 }
 
@@ -79,7 +132,7 @@ blockquote {
     radial-gradient(circle at 70% 40%, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px);
   background-size: 140px 140px, 95px 95px;
   mix-blend-mode: soft-light;
-  opacity: 0.74;
+  opacity: 1;
   z-index: 0;
   animation: noiseDrift 0.42s steps(3) infinite;
 }
@@ -109,7 +162,7 @@ blockquote {
 
 .site-header {
   inset: 0 0 auto;
-  padding: 40px var(--header-pad) 0;
+  padding: 56px var(--header-pad) 0;
   position: fixed;
   z-index: 40;
 }
@@ -122,13 +175,16 @@ blockquote {
 
 .site-header a {
   display: inline-block;
-  font-size: clamp(15px, 1.35vw, 20px);
+  font-size: clamp(20px, 1.8vw, 28px);
   font-weight: 850;
   letter-spacing: 0;
   line-height: 1;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .site-header a::after,
@@ -141,7 +197,7 @@ blockquote {
   left: 0;
   position: absolute;
   transform: scaleX(0);
-  transform-origin: right center;
+  transform-origin: left center;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   width: 100%;
 }
@@ -151,7 +207,6 @@ blockquote {
 .contact-links a:hover::after,
 .back-link:hover::after {
   transform: scaleX(1);
-  transform-origin: left center;
 }
 
 main {
@@ -193,45 +248,6 @@ main {
   display: block;
 }
 
-.orbit-drag-label {
-  align-items: center;
-  background:
-    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.95), rgba(246, 243, 232, 0.9) 44%, rgba(225, 228, 218, 0.86));
-  border: 1px solid rgba(5, 5, 5, 0.08);
-  border-radius: 999px;
-  box-shadow:
-    0 18px 50px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  color: var(--ink);
-  display: flex;
-  font-size: 10px;
-  font-weight: 900;
-  height: 78px;
-  justify-content: center;
-  letter-spacing: 0;
-  line-height: 1;
-  pointer-events: none;
-  text-transform: uppercase;
-  transform: translate3d(-50%, -50%, 0);
-  width: 78px;
-}
-
-.orbit-stage-label {
-  background: rgba(5, 5, 5, 0.78);
-  border: 1px solid rgba(244, 239, 226, 0.28);
-  border-radius: 999px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  color: var(--paper);
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  padding: 7px 8px;
-  pointer-events: none;
-  text-transform: uppercase;
-  transform: translate3d(-50%, -50%, 0);
-  white-space: nowrap;
-}
 
 .hero-copy p,
 .about-note,
@@ -455,12 +471,12 @@ h1 {
 }
 
 .work-preview {
-  height: 300px;
+  height: 420px;
   left: 0;
   opacity: 0;
   top: 0;
   visibility: hidden;
-  width: min(440px, 32vw);
+  width: min(640px, 42vw);
 }
 
 .work-preview img,
@@ -471,7 +487,10 @@ h1 {
 .work-mobile-preview {
   height: 100%;
   object-fit: cover;
+  object-position: top; /* Prevents bottom cropping of UI screenshots */
   width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .work-preview span {
@@ -489,6 +508,7 @@ h1 {
 
 .project-transition-card {
   opacity: 0;
+  will-change: transform, width, height, top, left;
 }
 
 .work-mobile-preview {
@@ -499,39 +519,88 @@ h1 {
 }
 
 .contact {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100svh;
+  padding: clamp(140px, 12vw, 180px) var(--header-pad) clamp(40px, 5vw, 60px);
   position: relative;
+  z-index: 1;
 }
 
 .contact h2 {
-  font-size: clamp(76px, 14vw, 205px);
+  font-size: clamp(80px, 16vw, 240px);
   font-weight: 850;
-  letter-spacing: 0;
-  line-height: 0.85;
-  margin-bottom: clamp(220px, 24vw, 380px);
-  max-width: 1120px;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 0;
+  max-width: 100%;
+}
+
+.contact-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  width: 100%;
+}
+
+.contact-links-row {
+  display: flex;
+  gap: clamp(24px, 4vw, 60px);
+  text-transform: uppercase;
+}
+
+.contact-links-row a {
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 850;
+  text-decoration: none;
+  position: relative;
+}
+
+.contact-links-row a::after {
+  background: currentColor;
+  bottom: -4px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 100%;
+}
+
+.contact-links-row a:hover::after {
+  transform: scaleX(1);
 }
 
 .email-link {
-  display: block;
-  font-size: clamp(34px, 4.2vw, 64px);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(24px, 3.2vw, 48px);
   font-weight: 850;
-  letter-spacing: 0;
-  line-height: 0.98;
-  margin-left: auto;
-  max-width: 760px;
-  text-decoration-thickness: 4px;
-  text-underline-offset: 6px;
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
 }
 
-.contact-links {
-  align-self: end;
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  text-transform: uppercase;
+.email-link::after {
+  background: currentColor;
+  bottom: -4px;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.email-arrow {
+  display: inline-block;
+  font-size: 0.8em;
+  transform: rotate(-45deg);
+  margin-right: 8px;
 }
 
 .contact-links a,
@@ -799,7 +868,6 @@ h1 {
 }
 
 .reveal {
-  opacity: 0;
   transform-origin: center top;
 }
 
@@ -919,19 +987,30 @@ h1 {
   }
 
   .contact {
-    display: flex;
-    flex-direction: column;
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 40px;
   }
 
   .contact h2 {
-    margin-bottom: 28px;
+    font-size: clamp(60px, 20vw, 120px);
+    margin-bottom: 60px;
+  }
+
+  .contact-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .contact-links-row {
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   .email-link {
-    font-size: clamp(24px, 7.2vw, 34px);
-    margin-left: 0;
-    overflow-wrap: anywhere;
-    text-decoration-thickness: 2px;
+    font-size: clamp(20px, 6vw, 28px);
+    white-space: normal;
   }
 
   .page-shell {
