@@ -837,8 +837,9 @@ h1 {
 }
 
 .email-icon {
-  display: inline-block;
-  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contact-links a,
