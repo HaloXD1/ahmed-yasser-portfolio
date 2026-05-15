@@ -1,6 +1,6 @@
-import { Suspense, useMemo, useRef, useState, type MutableRefObject } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
-import { Environment, Html, Lightformer } from "@react-three/drei";
+import { Environment, Lightformer } from "@react-three/drei";
 import * as THREE from "three";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useReducedMotion } from "../hooks/useReducedMotion";
@@ -10,13 +10,17 @@ type OrbitConfig = {
   accent: string;
   glow: string;
   metal: string;
-  startX: number;
   y: number;
   z: number;
   scale: number;
   speed: number;
   phase: number;
   rotation: [number, number, number];
+  spin: [number, number, number];
+};
+
+type OrbitLayout = OrbitConfig & {
+  startX: number;
 };
 
 type PointerCaptureTarget = {
@@ -30,49 +34,56 @@ const ORBITS: OrbitConfig[] = [
     accent: "#00a77d",
     glow: "#8df8d7",
     metal: "#d6ddd5",
-    startX: -4.45,
-    y: 0.98,
+    y: 1.45,
     z: -0.18,
     scale: 1.08,
-    speed: 0.26,
+    speed: 0.22,
     phase: 0.1,
-    rotation: [0.62, -0.28, -0.22]
+    rotation: [0.62, -0.28, -0.22],
+    spin: [0.18, 0.12, 0.16]
   },
   {
     id: "pipeline",
     accent: "#b76e45",
     glow: "#ffd391",
     metal: "#d7aa58",
-    startX: 0.95,
-    y: 1.06,
+    y: 0.65,
     z: -0.34,
-    scale: 0.92,
-    speed: 0.21,
+    scale: 1.02,
+    speed: 0.22,
     phase: 2.4,
-    rotation: [0.7, 0.22, 0.16]
+    rotation: [0.7, 0.22, 0.16],
+    spin: [0.14, -0.18, 0.2]
   },
   {
     id: "lineage",
     accent: "#2d6f9e",
     glow: "#9fc2ff",
     metal: "#d7d5c8",
-    startX: 5.2,
-    y: 0.94,
-    z: -0.5,
-    scale: 1,
-    speed: 0.24,
+    y: -0.12,
+    z: -0.52,
+    scale: 1.04,
+    speed: 0.22,
     phase: 4.8,
-    rotation: [0.58, -0.38, 0.12]
+    rotation: [0.58, -0.38, 0.12],
+    spin: [-0.2, 0.16, -0.14]
+  },
+  {
+    id: "insights",
+    accent: "#9b741e",
+    glow: "#ffe1a6",
+    metal: "#d7c39a",
+    y: -0.85,
+    z: -0.66,
+    scale: 0.96,
+    speed: 0.22,
+    phase: 6.1,
+    rotation: [0.46, 0.12, -0.18],
+    spin: [0.16, 0.2, 0.12]
   }
 ];
 
 const RING_Y_SCALE = 0.72;
-const DATA_STAGES = [
-  { label: "RAW", angle: Math.PI * 1.12, radius: 1.58 },
-  { label: "MODEL", angle: Math.PI * 0.32, radius: 1.24 },
-  { label: "DQ", angle: Math.PI * 1.78, radius: 1.02 },
-  { label: "BI", angle: Math.PI * 0.06, radius: 0.54 }
-];
 
 function pointOnOrbit(radius: number, angle: number, z = 0) {
   return new THREE.Vector3(Math.cos(angle) * radius, Math.sin(angle) * radius * RING_Y_SCALE, z);
@@ -194,7 +205,8 @@ function FlowPacket({
   offset,
   radius,
   reducedMotion,
-  speed
+  speed,
+  motionPaused
 }: {
   color: string;
   glow: string;
@@ -202,17 +214,25 @@ function FlowPacket({
   radius: number;
   reducedMotion: boolean;
   speed: number;
+  motionPaused: boolean;
 }) {
   const packetRef = useRef<THREE.Group | null>(null);
+  const angleRef = useRef(offset);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const packet = packetRef.current;
     if (!packet) {
       return;
     }
 
-    const angle = offset + (reducedMotion ? 0 : state.clock.elapsedTime * speed);
-    packet.position.copy(pointOnOrbit(radius, angle, 0.22));
+    if (!reducedMotion && !motionPaused) {
+      angleRef.current += speed * delta;
+      if (angleRef.current > Math.PI * 2) {
+        angleRef.current -= Math.PI * 2;
+      }
+    }
+
+    packet.position.copy(pointOnOrbit(radius, angleRef.current, 0.22));
   });
 
   return (
@@ -238,40 +258,48 @@ function FlowPacket({
   );
 }
 
-function OrbitStageLabel({ angle, label, radius }: { angle: number; label: string; radius: number }) {
-  const position = useMemo(() => pointOnOrbit(radius, angle, 0.42), [angle, radius]);
-
-  return (
-    <Html center className="orbit-stage-label" distanceFactor={8.4} position={position}>
-      {label}
-    </Html>
-  );
-}
-
 function DataOrbitModel({
   config,
   reducedMotion,
-  rotationOffset
+  rotationOffset,
+  motionPaused
 }: {
   config: OrbitConfig;
   reducedMotion: boolean;
   rotationOffset: MutableRefObject<{ x: number; y: number }>;
+  motionPaused: boolean;
 }) {
   const modelRef = useRef<THREE.Group | null>(null);
-  const showStageLabels = config.id === "pipeline";
+  const spinRef = useRef({ x: 0, y: 0, z: 0 });
+  const bobRef = useRef(0);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const model = modelRef.current;
     if (!model) {
       return;
     }
 
-    const t = state.clock.elapsedTime + config.phase;
-    const drift = reducedMotion ? 0 : 1;
-    model.rotation.x = config.rotation[0] + rotationOffset.current.x + Math.sin(t * 0.32) * 0.045 * drift;
-    model.rotation.y = config.rotation[1] + rotationOffset.current.y + Math.cos(t * 0.28) * 0.055 * drift;
-    model.rotation.z = config.rotation[2] + Math.sin(t * 0.38) * 0.09 * drift;
-    model.position.y = Math.sin(t * 0.72) * 0.055 * drift;
+    if (!reducedMotion && !motionPaused) {
+      spinRef.current.x += config.spin[0] * delta;
+      spinRef.current.y += config.spin[1] * delta;
+      spinRef.current.z += config.spin[2] * delta;
+      if (spinRef.current.x > Math.PI * 2) {
+        spinRef.current.x -= Math.PI * 2;
+      }
+      if (spinRef.current.y > Math.PI * 2) {
+        spinRef.current.y -= Math.PI * 2;
+      }
+      if (spinRef.current.z > Math.PI * 2) {
+        spinRef.current.z -= Math.PI * 2;
+      }
+      const t = state.clock.elapsedTime + config.phase;
+      bobRef.current = Math.sin(t * 0.72) * 0.055;
+    }
+
+    model.rotation.x = config.rotation[0] + rotationOffset.current.x + spinRef.current.x;
+    model.rotation.y = config.rotation[1] + rotationOffset.current.y + spinRef.current.y;
+    model.rotation.z = config.rotation[2] + spinRef.current.z;
+    model.position.y = bobRef.current;
   });
 
   return (
@@ -325,6 +353,7 @@ function DataOrbitModel({
         radius={1.58}
         reducedMotion={reducedMotion}
         speed={0.86}
+        motionPaused={motionPaused}
       />
       <FlowPacket
         color={config.accent}
@@ -333,9 +362,8 @@ function DataOrbitModel({
         radius={1.02}
         reducedMotion={reducedMotion}
         speed={1.08}
+        motionPaused={motionPaused}
       />
-      {showStageLabels &&
-        DATA_STAGES.map((stage) => <OrbitStageLabel key={`${config.id}-${stage.label}`} {...stage} />)}
     </group>
   );
 }
@@ -343,11 +371,17 @@ function DataOrbitModel({
 function MovingOrbit({
   compact,
   config,
-  reducedMotion
+  reducedMotion,
+  dragLock,
+  setDragLock,
+  wrapAt
 }: {
   compact: boolean;
-  config: OrbitConfig;
+  config: OrbitLayout;
   reducedMotion: boolean;
+  dragLock: string | null;
+  setDragLock: (value: string | null) => void;
+  wrapAt: number;
 }) {
   const groupRef = useRef<THREE.Group | null>(null);
   const dragging = useRef(false);
@@ -355,9 +389,13 @@ function MovingOrbit({
   const rotationOffset = useRef({ x: 0, y: 0 });
   const [active, setActive] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const viewport = useThree((state) => state.viewport);
   const scale = config.scale * (compact ? 0.68 : 1);
-  const wrapAt = viewport.width / 2 + scale * 2.8;
+  const motionPaused = dragLock !== null && dragLock !== config.id;
+
+  useEffect(() => {
+    const event = new CustomEvent("ringHover", { detail: hovered && !dragLock });
+    window.dispatchEvent(event);
+  }, [hovered, dragLock]);
 
   useFrame((state, delta) => {
     const group = groupRef.current;
@@ -369,13 +407,15 @@ function MovingOrbit({
     const targetScale = active || hovered ? scale * 1.055 : scale;
     group.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.08);
 
-    if (!dragging.current && !reducedMotion) {
+    if (!dragging.current && !reducedMotion && !motionPaused) {
       group.position.x += config.speed * delta * (compact ? 0.7 : 1);
       group.position.z = config.z + Math.sin(t * 0.22) * 0.08;
 
       if (group.position.x > wrapAt) {
         group.position.x = -wrapAt;
       }
+    } else {
+      group.position.z = config.z;
     }
   });
 
@@ -383,6 +423,7 @@ function MovingOrbit({
     event.stopPropagation();
     dragging.current = true;
     setActive(true);
+    setDragLock(config.id);
     dragStart.current = {
       pointerX: event.nativeEvent.clientX,
       pointerY: event.nativeEvent.clientY,
@@ -400,8 +441,10 @@ function MovingOrbit({
     event.stopPropagation();
     const deltaX = event.nativeEvent.clientX - dragStart.current.pointerX;
     const deltaY = event.nativeEvent.clientY - dragStart.current.pointerY;
-    rotationOffset.current.x = THREE.MathUtils.clamp(dragStart.current.rotationX + deltaY * 0.006, -0.62, 0.62);
+    rotationOffset.current.x = dragStart.current.rotationX + deltaY * 0.006;
     rotationOffset.current.y = dragStart.current.rotationY + deltaX * 0.0075;
+    rotationOffset.current.x = THREE.MathUtils.euclideanModulo(rotationOffset.current.x, Math.PI * 2);
+    rotationOffset.current.y = THREE.MathUtils.euclideanModulo(rotationOffset.current.y, Math.PI * 2);
   }
 
   function onPointerUp(event: ThreeEvent<PointerEvent>) {
@@ -412,6 +455,9 @@ function MovingOrbit({
     event.stopPropagation();
     dragging.current = false;
     setActive(false);
+    if (dragLock === config.id) {
+      setDragLock(null);
+    }
     (event.target as unknown as PointerCaptureTarget).releasePointerCapture?.(event.pointerId);
   }
 
@@ -425,26 +471,40 @@ function MovingOrbit({
         event.stopPropagation();
         setHovered(true);
       }}
+      onPointerCancel={onPointerUp}
       onPointerUp={onPointerUp}
       position={[config.startX * (compact ? 0.62 : 1), config.y * (compact ? 0.72 : 1), config.z]}
       scale={scale}
     >
-      <mesh position={[0, 0, 0.38]} scale={[1.08, 0.78, 0.18]}>
-        <sphereGeometry args={[2.05, 40, 20]} />
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[1.1, 12, 10]} />
         <meshBasicMaterial depthWrite={false} opacity={0} transparent />
       </mesh>
-      <DataOrbitModel config={config} reducedMotion={reducedMotion} rotationOffset={rotationOffset} />
-      {(active || hovered) && (
-        <Html center className="orbit-drag-label" distanceFactor={7.8} position={[0, -0.12, 0.86]}>
-          ROTATE ME
-        </Html>
-      )}
+      <DataOrbitModel
+        config={config}
+        reducedMotion={reducedMotion}
+        rotationOffset={rotationOffset}
+        motionPaused={motionPaused || active}
+      />
     </group>
   );
 }
 
 function OrbitScene({ compact, reducedMotion }: { compact: boolean; reducedMotion: boolean }) {
-  const visibleOrbits = compact ? ORBITS.slice(0, 2) : ORBITS;
+  const [dragLock, setDragLock] = useState<string | null>(null);
+  const viewport = useThree((state) => state.viewport);
+  const visibleOrbits = useMemo(() => (compact ? ORBITS.slice(0, 2) : ORBITS), [compact]);
+  const orbitSpacing = compact ? 4.2 : 5.2;
+  const minSpan = orbitSpacing * visibleOrbits.length;
+  const wrapAt = Math.max(minSpan / 2, viewport.width / 2 + orbitSpacing);
+  const layoutOrbits = useMemo(
+    () =>
+      visibleOrbits.map((config, index) => ({
+        ...config,
+        startX: -wrapAt + orbitSpacing * index
+      })),
+    [orbitSpacing, visibleOrbits, wrapAt]
+  );
 
   return (
     <>
@@ -459,8 +519,16 @@ function OrbitScene({ compact, reducedMotion }: { compact: boolean; reducedMotio
           <Lightformer color="#ffbc76" intensity={1.15} position={[4, -1.2, 5]} scale={[2.8, 3, 1]} />
         </Environment>
       </Suspense>
-      {visibleOrbits.map((config) => (
-        <MovingOrbit key={config.id} compact={compact} config={config} reducedMotion={reducedMotion} />
+      {layoutOrbits.map((config) => (
+        <MovingOrbit
+          key={config.id}
+          compact={compact}
+          config={config}
+          reducedMotion={reducedMotion}
+          dragLock={dragLock}
+          setDragLock={setDragLock}
+          wrapAt={wrapAt}
+        />
       ))}
     </>
   );
