@@ -93,7 +93,6 @@ export function ProjectDetailPage() {
         <section className="project-gallery reveal" aria-label={`${project.title} visuals`}>
           <div className="project-gallery-heading">
             <p className="eyebrow">Project visuals</p>
-            <h2>Useful proof, not decoration.</h2>
           </div>
           <div className="project-gallery-grid">
             {project.gallery.map((image, index) => (
