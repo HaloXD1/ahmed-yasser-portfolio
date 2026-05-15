@@ -184,6 +184,68 @@ main {
   align-content: end;
   display: grid;
   min-height: calc(100svh - clamp(150px, 16vw, 226px));
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+.orbit-field {
+  cursor: grab;
+  height: 100svh;
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  touch-action: none;
+  user-select: none;
+  z-index: 2;
+}
+
+.orbit-field:active {
+  cursor: grabbing;
+}
+
+.orbit-field canvas {
+  display: block;
+}
+
+.orbit-drag-label {
+  align-items: center;
+  background:
+    radial-gradient(circle at 34% 24%, rgba(255, 255, 255, 0.95), rgba(246, 243, 232, 0.9) 44%, rgba(225, 228, 218, 0.86));
+  border: 1px solid rgba(5, 5, 5, 0.08);
+  border-radius: 999px;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  display: flex;
+  font-size: 10px;
+  font-weight: 900;
+  height: 78px;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate3d(-50%, -50%, 0);
+  width: 78px;
+}
+
+.orbit-stage-label {
+  background: rgba(5, 5, 5, 0.78);
+  border: 1px solid rgba(244, 239, 226, 0.28);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  padding: 7px 8px;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate3d(-50%, -50%, 0);
+  white-space: nowrap;
 }
 
 .hero-copy p,

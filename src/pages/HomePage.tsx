@@ -1,5 +1,6 @@
 import heroArt from "../../assets/data_rings_hero.png";
 import contactArt from "../../assets/data_rings_contact.png";
+import { Mascot } from "../components/Mascot";
 import { WorkSection } from "../components/WorkSection";
 import { publicUrl } from "../utils/urls";
 
@@ -7,6 +8,7 @@ export function HomePage() {
   return (
     <main id="hey">
       <section className="hero" aria-labelledby="hero-title">
+        <Mascot />
         <div className="hero-media" aria-hidden="true">
           <img src={heroArt} alt="" />
         </div>
