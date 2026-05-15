@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      const base = "/ahmed-yasser-portfolio";
+      const path = location.pathname.startsWith(base)
+        ? location.pathname.slice(base.length)
+        : location.pathname;
+      location.replace(`${base}/?redirect=${encodeURIComponent(path + location.search + location.hash)}`);
+    </script>
+  </head>
+  <body></body>
+</html>

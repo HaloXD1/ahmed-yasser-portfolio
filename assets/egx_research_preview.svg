@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 850" role="img" aria-labelledby="title desc">
+  <title id="title">EGX Research Toolkit preview</title>
+  <desc id="desc">Abstract financial research workspace, not a market-data screenshot.</desc>
+  <rect width="1280" height="850" fill="#111514"/>
+  <rect x="78" y="86" width="1124" height="678" rx="8" fill="#d4cfc4"/>
+  <rect x="126" y="134" width="1028" height="300" rx="6" fill="#0b0d0c"/>
+  <polyline points="160,372 245,334 325,360 408,258 490,284 570,210 650,240 730,180 812,220 894,162 990,188 1118,124" fill="none" stroke="#00a77d" stroke-width="8"/>
+  <polyline points="160,392 245,388 325,338 408,350 490,308 570,332 650,284 730,310 812,274 894,292 990,250 1118,270" fill="none" stroke="#b76e45" stroke-width="5" opacity=".9"/>
+  <g fill="#101412">
+    <rect x="126" y="486" width="180" height="26"/>
+    <rect x="126" y="548" width="940" height="2"/>
+    <rect x="126" y="604" width="940" height="2"/>
+    <rect x="126" y="660" width="940" height="2"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#101412">
+    <text x="126" y="590">Ticker</text>
+    <text x="316" y="590">Signal</text>
+    <text x="530" y="590">Notes</text>
+    <text x="126" y="646">EGX30</text>
+    <text x="316" y="646">Research workflow</text>
+    <text x="530" y="646">Repeatable scripts + tests</text>
+  </g>
+  <circle cx="1088" cy="636" r="58" fill="#00a77d"/>
+  <text x="126" y="725" fill="#101412" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="800">EGX research toolkit</text>
+</svg>

@@ -1,0 +1,49 @@
+import { expect, test } from "@playwright/test";
+
+const base = "/ahmed-yasser-portfolio";
+
+test("home renders the motion portfolio shell", async ({ page }) => {
+  await page.goto(`${base}/`);
+
+  await expect(page.getByRole("heading", { name: /Data systems that hold up/i })).toBeVisible();
+  await expect(page.locator(".noise-layer")).toBeVisible();
+  await expect(page.locator("canvas.data-field")).toBeVisible();
+
+  if ((page.viewportSize()?.width ?? 0) < 900) {
+    await expect(page.locator(".work-mobile-preview").first()).toBeVisible();
+  } else {
+    await page.getByRole("link", { name: /Retail Data Pipeline/i }).hover();
+    await expect(page.locator(".work-preview img")).toBeVisible();
+  }
+});
+
+test("project routes render recruiter case studies", async ({ page }) => {
+  await page.goto(`${base}/projects/retail-data-pipeline`);
+
+  await expect(page.getByRole("heading", { name: /Retail Data Pipeline and KPI Dashboard/i })).toBeVisible();
+  const proofItem = page.locator("li", { hasText: "Rejects bad rows before loading." }).first();
+  await proofItem.scrollIntoViewIfNeeded();
+  await expect(proofItem).toBeVisible();
+  await expect(page.getByRole("link", { name: /Live demo/i })).toBeVisible();
+});
+
+test("project guide compatibility redirect works", async ({ page, browser }) => {
+  await page.goto(`${base}/projects.html`, { waitUntil: "commit" });
+  await page.waitForURL(/\/ahmed-yasser-portfolio\/projects$/, { waitUntil: "domcontentloaded" });
+
+  expect(page.url()).toMatch(/\/ahmed-yasser-portfolio\/projects$/);
+  await page.close();
+
+  const target = await browser.newPage();
+  await target.goto(`${base}/projects`);
+  await expect(target.getByRole("heading", { name: /What each system proves/i })).toBeVisible();
+  await target.close();
+});
+
+test("reduced motion keeps content readable", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(`${base}/`);
+
+  await expect(page.getByRole("heading", { name: /Data systems that hold up/i })).toBeVisible();
+  await expect(page.locator("canvas.data-field")).toBeHidden();
+});

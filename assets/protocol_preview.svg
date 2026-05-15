@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 850" role="img" aria-labelledby="title desc">
+  <title id="title">Protocol Productivity App preview</title>
+  <desc id="desc">Abstract productivity app interface, not a product screenshot.</desc>
+  <rect width="1280" height="850" fill="#111514"/>
+  <rect x="90" y="82" width="1100" height="686" rx="8" fill="#d4cfc4"/>
+  <rect x="132" y="128" width="250" height="594" rx="6" fill="#101412"/>
+  <rect x="426" y="128" width="722" height="594" rx="6" fill="#f3eee4"/>
+  <g fill="#d4cfc4">
+    <rect x="164" y="174" width="150" height="18"/>
+    <rect x="164" y="246" width="170" height="14"/>
+    <rect x="164" y="292" width="128" height="14"/>
+    <rect x="164" y="338" width="186" height="14"/>
+  </g>
+  <g fill="#101412">
+    <rect x="476" y="182" width="260" height="36"/>
+    <rect x="476" y="270" width="590" height="88" rx="6"/>
+    <rect x="476" y="398" width="590" height="88" rx="6"/>
+    <rect x="476" y="526" width="590" height="88" rx="6"/>
+  </g>
+  <g fill="#00a77d">
+    <circle cx="516" cy="314" r="14"/>
+    <circle cx="516" cy="442" r="14"/>
+    <circle cx="516" cy="570" r="14"/>
+  </g>
+  <g stroke="#d4cfc4" stroke-width="10" stroke-linecap="round">
+    <path d="M568 314h260"/>
+    <path d="M568 442h360"/>
+    <path d="M568 570h220"/>
+  </g>
+  <text x="164" y="642" fill="#d4cfc4" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800">Protocol</text>
+</svg>

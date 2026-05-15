@@ -1,6 +1,6 @@
 # Ahmed Yasser Portfolio
 
-Static portfolio landing page for Data Engineering, Analytics Engineering, Cloud Security Automation, and business systems simulation internship positioning.
+Vite + React portfolio for Data Engineering, Analytics Engineering, Cloud Security Automation, and business systems simulation internship positioning.
 
 Live site: https://haloxd1.github.io/ahmed-yasser-portfolio/
 
@@ -11,14 +11,15 @@ Project guide: https://haloxd1.github.io/ahmed-yasser-portfolio/projects.html
 ## Local Preview
 
 ```bash
-python3 -m http.server 8520
+npm install
+npm run dev
 ```
 
-Open `http://127.0.0.1:8520`.
+Open the Vite URL printed by the command.
 
 ## Deploy Later
 
-Enable GitHub Pages for this repository after making it public.
+GitHub Pages builds the app and publishes `dist`.
 
 ## Career Package
 

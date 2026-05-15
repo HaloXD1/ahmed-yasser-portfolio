@@ -5,20 +5,15 @@ on:
   pull_request:
 
 jobs:
-  static-check:
+  app-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Check site files
-        run: |
-          test -f index.html
-          test -f styles.css
-          test -f assets/retail_dashboard_demo.gif
-          test -f assets/saas_dashboard_demo.gif
-          test -f assets/cloud_security_dashboard_demo.gif
-      - name: Check expected portfolio text
-        run: |
-          grep -q "Ahmed Yasser Shalaby" index.html
-          grep -q "Retail Data Pipeline" index.html
-          grep -q "SaaS Analytics Engineering Pipeline" index.html
-          grep -q "Cloud Security Posture Auditor" index.html
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
