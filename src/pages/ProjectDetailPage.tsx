@@ -29,36 +29,31 @@ export function ProjectDetailPage() {
         </div>
       </section>
 
-      <section className="case-grid" aria-label={`${project.title} case study`}>
+      <section className="case-grid" aria-label={`${project.title} overview`}>
         <article className="case-panel reveal">
-          <span>Problem</span>
-          <p>{project.problem}</p>
+          <span>Intent</span>
+          <p>{project.intent}</p>
         </article>
         <article className="case-panel reveal">
-          <span>Architecture</span>
-          <p>{project.architecture}</p>
+          <span>How it works</span>
+          <p>{project.howItWorks}</p>
         </article>
         <article className="case-panel wide reveal">
-          <span>What it proves</span>
-          <p>{project.proof}</p>
+          <span>Why it matters</span>
+          <p>{project.whyItMatters}</p>
         </article>
       </section>
 
       <section className="proof-section reveal">
         <div>
-          <p className="eyebrow">Strongest proof</p>
-          <h2>Fast evidence to mention in interviews.</h2>
+          <p className="eyebrow">What to notice</p>
+          <h2>The main ideas behind the project.</h2>
         </div>
         <ol>
-          {project.strongestProof.map((item) => (
+          {project.highlights.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ol>
-      </section>
-
-      <section className="pitch-section reveal">
-        <p className="eyebrow">Interview line</p>
-        <blockquote>{project.interviewPitch}</blockquote>
       </section>
     </main>
   );

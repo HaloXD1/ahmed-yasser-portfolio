@@ -3,3 +3,9 @@ dist/
 playwright-report/
 test-results/
 *.tsbuildinfo
+
+# Internal planning / career-prep files kept local only.
+AGENTS.md
+CAREER_CONTEXT.md
+docs/
+scripts/build_proof_sheet_pdf.py

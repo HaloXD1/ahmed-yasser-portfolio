@@ -67,13 +67,18 @@ export function WorkSection() {
       return;
     }
 
+    if (transition) {
+      gsap.set(previewRef.current, { autoAlpha: 0, scale: 0.96 });
+      return;
+    }
+
     gsap.to(previewRef.current, {
       autoAlpha: activeProject ? 1 : 0,
       scale: activeProject ? 1 : 0.96,
       duration: 0.6,
       ease: "power2.inOut"
     });
-  }, [activeProject, reducedMotion]);
+  }, [activeProject, reducedMotion, transition]);
 
   useEffect(() => {
     const element = transitionRef.current;
@@ -156,8 +161,14 @@ export function WorkSection() {
       return;
     }
 
-    setActiveProject(project);
-    setTransition({ project, bounds: previewRef.current.getBoundingClientRect() });
+    const bounds = previewRef.current.getBoundingClientRect();
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    gsap.set(previewRef.current, { autoAlpha: 0, scale: 0.96 });
+    setHoveredProject(null);
+    setActiveProject(null);
+    setTransition({ project, bounds });
   }
 
   function onRowKeyDown(project: Project, event: KeyboardEvent<HTMLElement>) {

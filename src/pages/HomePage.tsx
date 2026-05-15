@@ -17,7 +17,7 @@ export function HomePage() {
         <Mascot />
         <div className="hero-copy">
           <h1 id="hero-title" className="reveal">
-            Data systems that hold up.
+            Messy data, made useful.
           </h1>
         </div>
         <span className="year-mark">(c)2026</span>
@@ -26,24 +26,24 @@ export function HomePage() {
       <section className="about" id="about" aria-labelledby="about-title">
         <div className="about-lede reveal">
           <h2 id="about-title">
-            Ahmed builds reliable data and operations systems for teams that need proof, not just dashboards.
+            <span>Ahmed</span><sup>*</sup> builds the boring parts that make dashboards less suspicious.
           </h2>
         </div>
 
         <p className="about-note reveal">
-          Data Engineering first. Analytics Engineering close behind. Cloud Security as the technical edge.
+          <span>*</span> Ahmed /ah-med/: Business Informatics student. Usually found turning messy exports into
+          something a dashboard can trust.
         </p>
 
         <div className="about-copy reveal">
           <p>
-            I am a Business Informatics student focused on projects that behave like real work: contracts before
-            loading, models before dashboards, failure diagnosis after bad data, and clear evidence recruiters can
-            inspect fast.
+            I am aiming at Data Engineering first, Analytics Engineering close behind, and Cloud Security as the
+            sharp edge. Basically: take the messy thing, make it dependable, then make it explain itself.
           </p>
           <p>
-            The portfolio is built around a simple idea: small systems can still show professional habits. Each project
-            has a public repo, deployed proof where useful, and an interview story that connects business impact to
-            technical execution.
+            I like the awkward middle where business questions meet technical reality: raw files, broken joins, weird
+            metrics, quiet failures, and the small panic behind "can we trust this?" These projects are my way of
+            learning that work in public.
           </p>
         </div>
       </section>

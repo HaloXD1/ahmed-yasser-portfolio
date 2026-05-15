@@ -1,13 +1,11 @@
 import type { Project } from "../data/projects";
-import { publicUrl } from "../utils/urls";
 
 type ProjectLinksProps = {
   project: Project;
-  includeProofSheet?: boolean;
   compact?: boolean;
 };
 
-export function ProjectLinks({ project, includeProofSheet = false, compact = false }: ProjectLinksProps) {
+export function ProjectLinks({ project, compact = false }: ProjectLinksProps) {
   const baseLinks = compact ? project.links.slice(0, 2) : project.links;
   const links = baseLinks;
 
