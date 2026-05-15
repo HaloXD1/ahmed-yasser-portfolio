@@ -1,8 +1,6 @@
 import cloudPreview from "../../assets/cloud_security_dashboard_demo.gif";
 import egxPreview from "../../assets/egx_research_preview.svg";
-import hasalaPreview from "../../assets/hasala_preview.svg";
 import opsPreview from "../../assets/opstwin_command_center.png";
-import outlookPreview from "../../assets/outlook_calendar_preview.svg";
 import protocolPreview from "../../assets/protocol_preview.svg";
 import retailPreview from "../../assets/retail_dashboard_demo.gif";
 import saasPreview from "../../assets/saas_dashboard_demo.gif";
@@ -148,31 +146,6 @@ export const projects: Project[] = [
   },
   {
     number: "05",
-    slug: "outlook-calendar-automation",
-    title: "Outlook to Google Calendar Scanner",
-    shortTitle: "Outlook Calendar Automation",
-    category: "Automation utility",
-    type: "Python automation",
-    stack: ["Python", "APIs", "SQLite", "Dry-run mode", "Tests"],
-    summary: "A small automation tool for turning annoying schedule text into calendar-ready events.",
-    intent:
-      "This came from a real nuisance: deadlines and academic events scattered in places where I would definitely forget them. I built a parser that turns that mess into structured events before anything touches a calendar.",
-    howItWorks:
-      "The utility parses schedule-like data, normalizes events, deduplicates records, supports dry runs, and keeps private calendar configuration out of the public repo.",
-    whyItMatters:
-      "It is intentionally small, but it shows the kind of automation I like: remove a repeated task, keep a dry-run mode, and avoid leaking private config while doing it.",
-    highlights: [
-      "Normalizes messy schedule input into structured events.",
-      "Uses dry-run behavior before calendar changes.",
-      "Keeps private schedule data out of the public repository."
-    ],
-    previewImage: outlookPreview,
-    accent: "teal",
-    secondary: true,
-    links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/outlook-calendar-automation", primary: true }]
-  },
-  {
-    number: "06",
     slug: "egx-research-toolkit",
     title: "EGX Research Toolkit",
     shortTitle: "EGX Research Toolkit",
@@ -197,7 +170,7 @@ export const projects: Project[] = [
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/egx-research", primary: true }]
   },
   {
-    number: "07",
+    number: "06",
     slug: "protocol-productivity-app",
     title: "Protocol Productivity App",
     shortTitle: "Protocol Productivity App",
@@ -220,31 +193,6 @@ export const projects: Project[] = [
     accent: "coral",
     secondary: true,
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/Protocol", primary: true }]
-  },
-  {
-    number: "08",
-    slug: "hasala-team-project",
-    title: "Hasala",
-    shortTitle: "Hasala",
-    category: "Course team project",
-    type: "Team project",
-    stack: ["Teamwork", "Course project", "Product delivery"],
-    summary: "A course team project included honestly as shared work, not as a solo project.",
-    intent:
-      "I include Hasala because it was part of my course/team experience. It is clearly marked as shared work because I do not want this portfolio to blur the line between solo projects and team projects.",
-    howItWorks:
-      "The project represents a shared course build where multiple contributors worked around product delivery, implementation, and presentation requirements.",
-    whyItMatters:
-      "The owned repos carry the main technical depth. Hasala adds the collaboration context, with the ownership kept clear.",
-    highlights: [
-      "Clearly labeled as course team work.",
-      "Useful for collaboration context.",
-      "Kept secondary to Ahmed-owned public repositories."
-    ],
-    previewImage: hasalaPreview,
-    accent: "gold",
-    secondary: true,
-    links: [{ label: "Repository", href: "https://github.com/AdamAmr05/Hasala", primary: true }]
   }
 ];
 
