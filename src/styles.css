@@ -764,9 +764,7 @@ h1 {
 .project-transition-card.tone-dark,
 .detail-visual.tone-dark,
 .work-mobile-preview.tone-dark {
-  background:
-    radial-gradient(circle at 52% 46%, rgba(183, 110, 69, 0.28), transparent 36%),
-    linear-gradient(135deg, #3a2b25 0%, #171311 48%, #4a392f 100%);
+  background: var(--paper);
 }
 
 .work-preview.fit-contain img,
