@@ -6,6 +6,8 @@ Live site: https://haloxd1.github.io/ahmed-yasser-portfolio/
 
 Current concept: Data Reliability Lab.
 
+Project guide: https://haloxd1.github.io/ahmed-yasser-portfolio/projects.html
+
 ## Local Preview
 
 ```bash
@@ -27,6 +29,7 @@ Enable GitHub Pages for this repository after making it public.
 - [Company application packs](docs/company_packs/README.md)
 - [Design inspiration notes](docs/design_inspiration_notes.md)
 - [Project outputs and launch guide](docs/project_outputs_and_launch_guide.md)
+- [Plain-English project guide](projects.html)
 - [Final launch checklist](docs/final_launch_checklist.md)
 - [LinkedIn profile package](docs/linkedin_profile_package.md)
 - [Interview answers](docs/interview_answers.md)
