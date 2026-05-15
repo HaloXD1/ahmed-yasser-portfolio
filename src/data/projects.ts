@@ -45,7 +45,16 @@ export type Project = {
   secondary?: boolean;
 };
 
-export const projects: Project[] = [
+const projectOrder: Record<string, number> = {
+  "retail-data-pipeline": 1,
+  "protocol-productivity-app": 2,
+  "egx-research-toolkit": 3,
+  "saas-analytics-engineering-pipeline": 4,
+  "opstwin-control-tower": 5,
+  "cloud-security-posture-auditor": 6
+};
+
+const projectCatalog: Project[] = [
   {
     number: "01",
     slug: "retail-data-pipeline",
@@ -79,7 +88,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    number: "02",
+    number: "05",
     slug: "opstwin-control-tower",
     title: "OpsTwin Control Tower",
     shortTitle: "OpsTwin Control Tower",
@@ -106,7 +115,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    number: "03",
+    number: "04",
     slug: "saas-analytics-engineering-pipeline",
     title: "SaaS Analytics Engineering Pipeline",
     shortTitle: "SaaS Analytics Pipeline",
@@ -133,7 +142,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    number: "04",
+    number: "06",
     slug: "cloud-security-posture-auditor",
     title: "Cloud Security Posture Auditor",
     shortTitle: "Cloud Security Auditor",
@@ -160,7 +169,7 @@ export const projects: Project[] = [
     ]
   },
   {
-    number: "05",
+    number: "03",
     slug: "egx-research-toolkit",
     title: "EGX Research Toolkit",
     shortTitle: "EGX Research Toolkit",
@@ -215,7 +224,7 @@ export const projects: Project[] = [
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/egx-research", primary: true }]
   },
   {
-    number: "06",
+    number: "02",
     slug: "protocol-productivity-app",
     title: "Protocol Productivity App",
     shortTitle: "Protocol Productivity App",
@@ -270,6 +279,8 @@ export const projects: Project[] = [
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/Protocol", primary: true }]
   }
 ];
+
+export const projects: Project[] = [...projectCatalog].sort((a, b) => projectOrder[a.slug] - projectOrder[b.slug]);
 
 export function getProject(slug: string | undefined) {
   return projects.find((project) => project.slug === slug);
