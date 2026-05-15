@@ -109,6 +109,7 @@ const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
 
 function ScrollManager() {
   const location = useLocation();
+  const lenisRef = useRef<Lenis | null>(null);
 
   useScrollReveal(`${location.pathname}${location.hash}`);
 
@@ -121,6 +122,7 @@ function ScrollManager() {
       gestureOrientation: "vertical",
       smoothWheel: true,
     });
+    lenisRef.current = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -132,6 +134,7 @@ function ScrollManager() {
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
       gsap.ticker.remove(lenis.raf);
     };
   }, []);
@@ -140,12 +143,20 @@ function ScrollManager() {
     if (location.hash) {
       const id = window.decodeURIComponent(location.hash.slice(1));
       window.setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ block: "start" });
+        if (lenisRef.current) {
+          lenisRef.current.scrollTo(document.getElementById(id) || 0, { immediate: true });
+        } else {
+          document.getElementById(id)?.scrollIntoView({ block: "start" });
+        }
       }, 30);
       return;
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+    }
   }, [location.pathname, location.hash]);
 
   return null;
