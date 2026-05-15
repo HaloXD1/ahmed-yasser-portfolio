@@ -4,7 +4,7 @@ Static portfolio landing page for Data Engineering, Analytics Engineering, Cloud
 
 Live site: https://haloxd1.github.io/ahmed-yasser-portfolio/
 
-Current concept: Data Reliability Lab.
+Current concept: Data systems that hold up.
 
 Project guide: https://haloxd1.github.io/ahmed-yasser-portfolio/projects.html
 
