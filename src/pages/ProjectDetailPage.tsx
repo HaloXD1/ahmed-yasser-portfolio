@@ -24,7 +24,7 @@ export function ProjectDetailPage() {
           <p>{project.summary}</p>
           <ProjectLinks project={project} includeProofSheet />
         </div>
-        <div className="detail-visual reveal">
+        <div className="detail-visual">
           <img src={project.previewImage} alt="" />
         </div>
       </section>
