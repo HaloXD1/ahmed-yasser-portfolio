@@ -52,8 +52,8 @@ export function HomePage() {
         </h2>
         <div className="contact-bottom">
           <div className="contact-links-row" aria-label="Social links">
-            <a href="https://www.linkedin.com/in/ahmed-yasser-shalaby/">LinkedIn</a>
-            <a href="https://github.com/AhmedYasserShalaby">GitHub</a>
+            <a href="https://www.linkedin.com/in/ahmed-yasser-shalaby/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/AhmedYasserShalaby" target="_blank" rel="noreferrer">GitHub</a>
           </div>
           <a className="email-link" href="mailto:Ahmedy999.ay@gmail.com" onClick={handleCopyEmail}>
             <span className="email-arrow">↗</span> Ahmedy999.ay@gmail.com

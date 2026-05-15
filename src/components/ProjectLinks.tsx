@@ -26,8 +26,8 @@ export function ProjectLinks({ project, includeProofSheet = false, compact = fal
           key={`${project.slug}-${link.label}`}
           className={link.primary ? "text-button primary" : "text-button"}
           href={link.href}
-          target={link.href.startsWith("http") ? "_blank" : undefined}
-          rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+          target="_blank"
+          rel="noreferrer"
         >
           {link.label}
           <span aria-hidden="true">-&gt;</span>
