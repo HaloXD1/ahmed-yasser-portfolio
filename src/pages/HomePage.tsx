@@ -20,7 +20,7 @@ export function HomePage() {
             Messy data, made useful.
           </h1>
         </div>
-        <span className="year-mark">(c)2026</span>
+        <span className="year-mark">©2026</span>
       </section>
 
       <section className="about" id="about" aria-labelledby="about-title">
