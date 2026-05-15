@@ -2,11 +2,11 @@
 
 ## Make Public
 
-- `HaloXD1/HaloXD1` so the GitHub profile README appears publicly.
-- `HaloXD1/data-pipeline-kpi-dashboard`.
-- `HaloXD1/saas-analytics-engineering-pipeline`.
-- `HaloXD1/cloud-security-posture-auditor`.
-- `HaloXD1/ahmed-yasser-portfolio`.
+- `AhmedYasserShalaby/AhmedYasserShalaby` so the GitHub profile README appears publicly.
+- `AhmedYasserShalaby/data-pipeline-kpi-dashboard`.
+- `AhmedYasserShalaby/saas-analytics-engineering-pipeline`.
+- `AhmedYasserShalaby/cloud-security-posture-auditor`.
+- `AhmedYasserShalaby/ahmed-yasser-portfolio`.
 
 Keep any private/raw personal repos private.
 
@@ -15,7 +15,7 @@ Keep any private/raw personal repos private.
 - Retail Streamlit app: `https://ahmed-retail-kpi-dashboard.streamlit.app/`.
 - SaaS Streamlit app: `https://ahmed-saas-analytics-pipeline.streamlit.app/`.
 - Cloud security Streamlit app: `https://ahmed-cloud-security-auditor.streamlit.app/`.
-- Portfolio site: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
+- Portfolio site: `https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/`.
 
 ## Links To Paste
 
@@ -27,7 +27,7 @@ Keep any private/raw personal repos private.
 ### Portfolio Landing Page
 
 - Done: three Streamlit URLs are on the relevant project cards.
-- Add the final GitHub Pages URL to LinkedIn after testing: `https://haloxd1.github.io/ahmed-yasser-portfolio/`.
+- Add the final GitHub Pages URL to LinkedIn after testing: `https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/`.
 - Keep the proof sheet PDF reachable from the portfolio hero: `docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf`.
 
 ### CV

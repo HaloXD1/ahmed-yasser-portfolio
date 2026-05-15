@@ -60,12 +60,12 @@ export const projects: Project[] = [
     accent: "teal",
     links: [
       { label: "Live demo", href: "https://ahmed-retail-kpi-dashboard.streamlit.app/", primary: true },
-      { label: "Repository", href: "https://github.com/HaloXD1/data-pipeline-kpi-dashboard" },
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard" },
       {
         label: "Quality diagnosis",
-        href: "https://github.com/HaloXD1/data-pipeline-kpi-dashboard/blob/main/docs/quality_diagnosis.md"
+        href: "https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard/blob/main/docs/quality_diagnosis.md"
       },
-      { label: "Lineage", href: "https://github.com/HaloXD1/data-pipeline-kpi-dashboard/blob/main/docs/lineage.md" }
+      { label: "Lineage", href: "https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard/blob/main/docs/lineage.md" }
     ]
   },
   {
@@ -93,8 +93,8 @@ export const projects: Project[] = [
     previewImage: opsPreview,
     accent: "blue",
     links: [
-      { label: "Live demo", href: "https://haloxd1.github.io/ops-twin-control-tower/", primary: true },
-      { label: "Repository", href: "https://github.com/HaloXD1/ops-twin-control-tower" }
+      { label: "Live demo", href: "https://ahmedyassershalaby.github.io/ops-twin-control-tower/", primary: true },
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/ops-twin-control-tower" }
     ]
   },
   {
@@ -123,7 +123,7 @@ export const projects: Project[] = [
     accent: "coral",
     links: [
       { label: "Live demo", href: "https://ahmed-saas-analytics-pipeline.streamlit.app/", primary: true },
-      { label: "Repository", href: "https://github.com/HaloXD1/saas-analytics-engineering-pipeline" }
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/saas-analytics-engineering-pipeline" }
     ]
   },
   {
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     accent: "gold",
     links: [
       { label: "Live demo", href: "https://ahmed-cloud-security-auditor.streamlit.app/", primary: true },
-      { label: "Repository", href: "https://github.com/HaloXD1/cloud-security-posture-auditor" }
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/cloud-security-posture-auditor" }
     ]
   },
   {
@@ -180,7 +180,7 @@ export const projects: Project[] = [
     previewImage: outlookPreview,
     accent: "teal",
     secondary: true,
-    links: [{ label: "Repository", href: "https://github.com/HaloXD1/outlook-calendar-automation", primary: true }]
+    links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/outlook-calendar-automation", primary: true }]
   },
   {
     number: "06",
@@ -207,7 +207,7 @@ export const projects: Project[] = [
     previewImage: egxPreview,
     accent: "blue",
     secondary: true,
-    links: [{ label: "Repository", href: "https://github.com/HaloXD1/egx-research", primary: true }]
+    links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/egx-research", primary: true }]
   },
   {
     number: "07",
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     previewImage: protocolPreview,
     accent: "coral",
     secondary: true,
-    links: [{ label: "Repository", href: "https://github.com/HaloXD1/Protocol", primary: true }]
+    links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/Protocol", primary: true }]
   },
   {
     number: "08",

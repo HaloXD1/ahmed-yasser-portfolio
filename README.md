@@ -2,11 +2,11 @@
 
 Vite + React portfolio for Data Engineering, Analytics Engineering, Cloud Security Automation, and business systems simulation internship positioning.
 
-Live site: https://haloxd1.github.io/ahmed-yasser-portfolio/
+Live site: https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/
 
 Current concept: Data systems that hold up.
 
-Project guide: https://haloxd1.github.io/ahmed-yasser-portfolio/projects.html
+Project guide: https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/projects.html
 
 ## Local Preview
 

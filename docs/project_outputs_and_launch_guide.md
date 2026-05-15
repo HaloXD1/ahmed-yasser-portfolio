@@ -6,7 +6,7 @@ Use this file to understand what each project produces and what Ahmed must do ma
 
 Public URL:
 
-- https://haloxd1.github.io/ahmed-yasser-portfolio/
+- https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/
 
 What it shows:
 
@@ -25,7 +25,7 @@ Output preview:
 
 Repository:
 
-- https://github.com/HaloXD1/data-pipeline-kpi-dashboard
+- https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard
 
 Live demo:
 
@@ -78,11 +78,11 @@ streamlit run app/streamlit_dashboard.py
 
 Repository:
 
-- https://github.com/HaloXD1/ops-twin-control-tower
+- https://github.com/AhmedYasserShalaby/ops-twin-control-tower
 
 Live demo:
 
-- https://haloxd1.github.io/ops-twin-control-tower/
+- https://ahmedyassershalaby.github.io/ops-twin-control-tower/
 
 Main output:
 
@@ -105,7 +105,7 @@ What to understand:
 
 Repository:
 
-- https://github.com/HaloXD1/saas-analytics-engineering-pipeline
+- https://github.com/AhmedYasserShalaby/saas-analytics-engineering-pipeline
 
 Live demo:
 
@@ -151,7 +151,7 @@ streamlit run app/streamlit_dashboard.py
 
 Repository:
 
-- https://github.com/HaloXD1/cloud-security-posture-auditor
+- https://github.com/AhmedYasserShalaby/cloud-security-posture-auditor
 
 Live demo:
 
@@ -197,7 +197,7 @@ streamlit run app/streamlit_dashboard.py
 
 Repository:
 
-- https://github.com/HaloXD1/outlook-calendar-automation
+- https://github.com/AhmedYasserShalaby/outlook-calendar-automation
 
 Main output:
 
@@ -218,7 +218,7 @@ You must do this because it requires your Streamlit/GitHub login.
 1. Go to https://share.streamlit.io/
 2. Sign in with GitHub.
 3. Click `Create app`.
-4. Choose repository: `HaloXD1/data-pipeline-kpi-dashboard`.
+4. Choose repository: `AhmedYasserShalaby/data-pipeline-kpi-dashboard`.
 5. Branch: `main`.
 6. Main file path: `app/streamlit_dashboard.py`.
 7. App URL suggestion: `ahmed-retail-kpi-dashboard`.
@@ -232,7 +232,7 @@ You must do this because it requires your Streamlit/GitHub login.
 ### B. SaaS Dashboard
 
 1. Create another app.
-2. Repository: `HaloXD1/saas-analytics-engineering-pipeline`.
+2. Repository: `AhmedYasserShalaby/saas-analytics-engineering-pipeline`.
 3. Branch: `main`.
 4. Main file path: `app/streamlit_dashboard.py`.
 5. App URL suggestion: `ahmed-saas-analytics-pipeline`.
@@ -244,7 +244,7 @@ You must do this because it requires your Streamlit/GitHub login.
 ### C. Cloud Security Dashboard
 
 1. Create another app.
-2. Repository: `HaloXD1/cloud-security-posture-auditor`.
+2. Repository: `AhmedYasserShalaby/cloud-security-posture-auditor`.
 3. Branch: `main`.
 4. Main file path: `app/streamlit_dashboard.py`.
 5. App URL suggestion: `ahmed-cloud-security-auditor`.
@@ -263,7 +263,7 @@ These are now wired into the portfolio, GitHub profile README, project READMEs, 
 
 ## Manual Step-By-Step: GitHub Profile
 
-1. Go to https://github.com/HaloXD1
+1. Go to https://github.com/AhmedYasserShalaby
 2. Click `Customize your pins`.
 3. Pin these repos in order:
    1. `data-pipeline-kpi-dashboard`
@@ -284,8 +284,8 @@ Business Informatics Student | Data Engineering & Analytics Engineering | Python
 ```
 
 3. Add Featured links:
-   - Portfolio: `https://haloxd1.github.io/ahmed-yasser-portfolio/`
-   - Proof sheet: `https://haloxd1.github.io/ahmed-yasser-portfolio/docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf`
+   - Portfolio: `https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/`
+   - Proof sheet: `https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/docs/Ahmed_Yasser_Portfolio_Proof_Sheet.pdf`
    - Retail Streamlit URL after deployment.
    - SaaS Streamlit URL after deployment.
    - Cloud Security Streamlit URL after deployment.

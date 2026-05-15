@@ -139,8 +139,8 @@ story = [
         subtitle_style,
     ),
     p(
-        '<font color="#0b63ce">GitHub:</font> github.com/HaloXD1 &nbsp;&nbsp; '
-        '<font color="#0b63ce">Portfolio:</font> haloxd1.github.io/ahmed-yasser-portfolio/ &nbsp;&nbsp; '
+        '<font color="#0b63ce">GitHub:</font> github.com/AhmedYasserShalaby &nbsp;&nbsp; '
+        '<font color="#0b63ce">Portfolio:</font> ahmedyassershalaby.github.io/ahmed-yasser-portfolio/ &nbsp;&nbsp; '
         '<font color="#0b63ce">Email:</font> Ahmedy999.ay@gmail.com',
         small_style,
     ),
@@ -155,14 +155,14 @@ story = [
     ),
     p("Best Links", section_style),
     p("Retail demo: https://ahmed-retail-kpi-dashboard.streamlit.app/", link_style),
-    p("Retail repo: https://github.com/HaloXD1/data-pipeline-kpi-dashboard", link_style),
-    p("OpsTwin demo: https://haloxd1.github.io/ops-twin-control-tower/", link_style),
-    p("OpsTwin repo: https://github.com/HaloXD1/ops-twin-control-tower", link_style),
+    p("Retail repo: https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard", link_style),
+    p("OpsTwin demo: https://ahmedyassershalaby.github.io/ops-twin-control-tower/", link_style),
+    p("OpsTwin repo: https://github.com/AhmedYasserShalaby/ops-twin-control-tower", link_style),
     p("SaaS demo: https://ahmed-saas-analytics-pipeline.streamlit.app/", link_style),
-    p("SaaS repo: https://github.com/HaloXD1/saas-analytics-engineering-pipeline", link_style),
+    p("SaaS repo: https://github.com/AhmedYasserShalaby/saas-analytics-engineering-pipeline", link_style),
     p("Cloud demo: https://ahmed-cloud-security-auditor.streamlit.app/", link_style),
-    p("Cloud repo: https://github.com/HaloXD1/cloud-security-posture-auditor", link_style),
-    p("Profile: https://github.com/HaloXD1", link_style),
+    p("Cloud repo: https://github.com/AhmedYasserShalaby/cloud-security-posture-auditor", link_style),
+    p("Profile: https://github.com/AhmedYasserShalaby", link_style),
 ]
 
 doc = SimpleDocTemplate(

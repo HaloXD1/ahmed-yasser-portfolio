@@ -10,7 +10,7 @@ Community Cloud runs `streamlit run` from the repository root. Each project keep
 
 ## Retail Dashboard
 
-Repository: `HaloXD1/data-pipeline-kpi-dashboard`
+Repository: `AhmedYasserShalaby/data-pipeline-kpi-dashboard`
 
 Live URL: https://ahmed-retail-kpi-dashboard.streamlit.app/
 
@@ -31,7 +31,7 @@ After deployment:
 
 ## SaaS Dashboard
 
-Repository: `HaloXD1/saas-analytics-engineering-pipeline`
+Repository: `AhmedYasserShalaby/saas-analytics-engineering-pipeline`
 
 Live URL: https://ahmed-saas-analytics-pipeline.streamlit.app/
 
@@ -52,7 +52,7 @@ After deployment:
 
 ## Cloud Security Dashboard
 
-Repository: `HaloXD1/cloud-security-posture-auditor`
+Repository: `AhmedYasserShalaby/cloud-security-posture-auditor`
 
 Live URL: https://ahmed-cloud-security-auditor.streamlit.app/
 

@@ -10,7 +10,7 @@ Goal: a recruiter should understand the profile in 60 seconds.
 - Keep contact links visible.
 - Avoid long personal story.
 
-Status: updated in `HaloXD1/README.md`.
+Status: updated in `AhmedYasserShalaby/README.md`.
 
 ## Pinned Repo Order
 

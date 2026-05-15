@@ -3,8 +3,8 @@
 Target: Summer 2026 Data Engineering, Analytics Engineering, BI/Data, and Cloud/Security Automation internships.
 
 Contact: Ahmedy999.ay@gmail.com  
-GitHub: https://github.com/HaloXD1  
-Portfolio: https://haloxd1.github.io/ahmed-yasser-portfolio/  
+GitHub: https://github.com/AhmedYasserShalaby  
+Portfolio: https://ahmedyassershalaby.github.io/ahmed-yasser-portfolio/  
 LinkedIn: https://www.linkedin.com/in/ahmed-yasser-shalaby/
 
 ## Strongest Proof
@@ -30,11 +30,11 @@ LinkedIn: https://www.linkedin.com/in/ahmed-yasser-shalaby/
 ## Best Links
 
 - Retail demo: https://ahmed-retail-kpi-dashboard.streamlit.app/
-- Retail repo: https://github.com/HaloXD1/data-pipeline-kpi-dashboard
-- OpsTwin demo: https://haloxd1.github.io/ops-twin-control-tower/
-- OpsTwin repo: https://github.com/HaloXD1/ops-twin-control-tower
+- Retail repo: https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard
+- OpsTwin demo: https://ahmedyassershalaby.github.io/ops-twin-control-tower/
+- OpsTwin repo: https://github.com/AhmedYasserShalaby/ops-twin-control-tower
 - SaaS demo: https://ahmed-saas-analytics-pipeline.streamlit.app/
-- SaaS repo: https://github.com/HaloXD1/saas-analytics-engineering-pipeline
+- SaaS repo: https://github.com/AhmedYasserShalaby/saas-analytics-engineering-pipeline
 - Cloud Security demo: https://ahmed-cloud-security-auditor.streamlit.app/
-- Cloud Security repo: https://github.com/HaloXD1/cloud-security-posture-auditor
-- Profile: https://github.com/HaloXD1
+- Cloud Security repo: https://github.com/AhmedYasserShalaby/cloud-security-posture-auditor
+- Profile: https://github.com/AhmedYasserShalaby

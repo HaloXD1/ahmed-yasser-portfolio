@@ -4,7 +4,7 @@ Role angle: Power BI / Data Analytics / Digital Solutions Intern.
 
 ## Best Proof Link
 
-Retail Data Pipeline and KPI Dashboard: https://github.com/HaloXD1/data-pipeline-kpi-dashboard
+Retail Data Pipeline and KPI Dashboard: https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard
 
 ## Positioning
 

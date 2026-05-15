@@ -2,11 +2,11 @@
 
 ## Public Repositories
 
-- `HaloXD1/HaloXD1`
-- `HaloXD1/data-pipeline-kpi-dashboard`
-- `HaloXD1/saas-analytics-engineering-pipeline`
-- `HaloXD1/cloud-security-posture-auditor`
-- `HaloXD1/ahmed-yasser-portfolio`
+- `AhmedYasserShalaby/AhmedYasserShalaby`
+- `AhmedYasserShalaby/data-pipeline-kpi-dashboard`
+- `AhmedYasserShalaby/saas-analytics-engineering-pipeline`
+- `AhmedYasserShalaby/cloud-security-posture-auditor`
+- `AhmedYasserShalaby/ahmed-yasser-portfolio`
 
 ## GitHub Pins
 

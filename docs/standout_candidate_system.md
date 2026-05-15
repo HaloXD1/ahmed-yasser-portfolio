@@ -17,7 +17,7 @@ Secondary signal: Cloud Security Automation when the role values cloud, risk, IA
 | Flagship project upgrade | Retail repo gets stronger demo, walkthrough, production plan | README, dashboard, docs, tests |
 | SQL/interview prep | 40 SQL drills + answer patterns + project defense | `sql_interview_prep_pack.md` |
 | Referral/outreach system | Apply + message + follow-up workflow | tracker, templates, target list |
-| GitHub polish | Profile README + pinned repos + repo READMEs | `HaloXD1/README.md`, project READMEs |
+| GitHub polish | Profile README + pinned repos + repo READMEs | `AhmedYasserShalaby/README.md`, project READMEs |
 | One light cert | DP-900 study path | `certification_plan_dp900.md` |
 
 ## Completed Best Moves
