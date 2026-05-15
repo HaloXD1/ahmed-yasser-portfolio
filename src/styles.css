@@ -852,7 +852,7 @@ h1 {
 }
 
 .page-shell {
-  padding: clamp(118px, 12vw, 168px) var(--header-pad) 76px;
+  padding: clamp(94px, 10vw, 140px) var(--header-pad) 76px;
 }
 
 .page-hero {
@@ -946,6 +946,7 @@ h1 {
   display: grid;
   gap: clamp(28px, 4vw, 60px);
   grid-template-columns: minmax(0, 0.53fr) minmax(320px, 0.47fr);
+  margin-top: clamp(20px, 3vw, 40px);
   padding-bottom: clamp(42px, 6vw, 82px);
 }
 
