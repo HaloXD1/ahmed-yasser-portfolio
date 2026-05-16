@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useActiveSection } from "../hooks/useActiveSection";
 
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const navItems = [
   { label: "01/Hey", to: "/#hey", section: "hey" },
   { label: "02/About", to: "/#about", section: "about" },
@@ -24,7 +26,8 @@ export function SiteHeader() {
       return;
     }
 
-    window.history.replaceState(window.history.state, "", `${location.pathname}${nextHash}`);
+    const nextUrl = `${basePath}${location.pathname}${nextHash}` || `/${nextHash}`;
+    window.history.replaceState(window.history.state, "", nextUrl);
   }, [activeSection, location.hash, location.pathname, onHome]);
 
   return (
