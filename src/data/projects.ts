@@ -348,7 +348,9 @@ const projectCatalog: Project[] = [
     hoverGallery: egxImages,
     accent: "blue",
     secondary: true,
-    links: []
+    links: [
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/egx-research-toolkit", primary: true }
+    ]
   },
   {
     number: "02",
@@ -378,7 +380,9 @@ const projectCatalog: Project[] = [
     hoverGallery: protocolImages,
     accent: "coral",
     secondary: true,
-    links: []
+    links: [
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/protocol-productivity-app", primary: true }
+    ]
   }
 ];
 
