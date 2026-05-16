@@ -110,6 +110,20 @@ const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
 function ScrollManager() {
   const location = useLocation();
   const lenisRef = useRef<Lenis | null>(null);
+  const sectionIds = ["hey", "about", "work", "contact"];
+
+  const getScrollPosition = () => (lenisRef.current ? lenisRef.current.scroll : window.scrollY);
+
+  const getSectionFromScroll = () => {
+    const scrollY = getScrollPosition() + window.innerHeight / 3;
+    for (let i = sectionIds.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sectionIds[i]);
+      if (el && el.offsetTop <= scrollY) {
+        return sectionIds[i];
+      }
+    }
+    return sectionIds[0];
+  };
 
   useScrollReveal(`${location.pathname}${location.hash}`);
 
@@ -140,15 +154,21 @@ function ScrollManager() {
   }, []);
 
   useLayoutEffect(() => {
-    if (location.pathname === "/" && !location.hash) {
+    if (location.pathname === "/") {
       const restored = sessionStorage.getItem("scroll:home");
       if (restored) {
+        const storedHash = sessionStorage.getItem("scroll:home-hash");
+        if (storedHash && location.hash !== storedHash) {
+          const nextUrl = `${window.location.pathname}${storedHash}`;
+          window.history.replaceState(window.history.state, "", nextUrl);
+        }
         if (lenisRef.current) {
           lenisRef.current.scrollTo(Number(restored), { immediate: true });
         } else {
           window.scrollTo({ top: Number(restored), left: 0, behavior: "instant" as ScrollBehavior });
         }
         sessionStorage.removeItem("scroll:home");
+        sessionStorage.removeItem("scroll:home-hash");
         return;
       }
     }
@@ -219,7 +239,10 @@ function ScrollManager() {
   useEffect(() => {
     return () => {
       if (location.pathname === "/") {
-        sessionStorage.setItem("scroll:home", String(window.scrollY));
+        sessionStorage.setItem("scroll:home", String(getScrollPosition()));
+        const currentHash = window.location.hash;
+        const nextHash = currentHash || `#${getSectionFromScroll()}`;
+        sessionStorage.setItem("scroll:home-hash", nextHash);
       }
     };
   }, [location.pathname]);
