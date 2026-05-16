@@ -6,7 +6,7 @@ export function HomePage() {
   const [copied, setCopied] = useState(false);
   const handleCopyEmail = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    navigator.clipboard.writeText("Ahmedy999.ay@gmail.com");
+    navigator.clipboard.writeText("ahmedy999.ay@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -59,14 +59,14 @@ export function HomePage() {
             <a href="https://www.linkedin.com/in/ahmed-yasser-shalaby/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="https://github.com/AhmedYasserShalaby" target="_blank" rel="noreferrer">GitHub</a>
           </div>
-          <a className="email-link" href="mailto:Ahmedy999.ay@gmail.com" onClick={handleCopyEmail}>
+          <a className="email-link" href="mailto:ahmedy999.ay@gmail.com" onClick={handleCopyEmail}>
             <span className="email-icon">
               <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle' }}>
                 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
               </svg>
             </span>
-            {copied ? "Copied!" : "Ahmedy999.ay@gmail.com"}
+            {copied ? "Copied!" : "ahmedy999.ay@gmail.com"}
           </a>
         </div>
       </section>

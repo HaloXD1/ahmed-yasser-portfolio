@@ -225,8 +225,7 @@ const projectCatalog: Project[] = [
     hoverGallery: retailHoverImages,
     accent: "teal",
     links: [
-      { label: "Live demo", href: "https://ahmed-retail-kpi-dashboard.streamlit.app/", primary: true },
-      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard" },
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard", primary: true },
       {
         label: "Quality diagnosis",
         href: "https://github.com/AhmedYasserShalaby/data-pipeline-kpi-dashboard/blob/main/docs/quality_diagnosis.md"
@@ -290,8 +289,7 @@ const projectCatalog: Project[] = [
     hoverGallery: saasHoverImages,
     accent: "coral",
     links: [
-      { label: "Live demo", href: "https://ahmed-saas-analytics-pipeline.streamlit.app/", primary: true },
-      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/saas-analytics-engineering-pipeline" }
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/saas-analytics-engineering-pipeline", primary: true }
     ]
   },
   {
@@ -320,8 +318,7 @@ const projectCatalog: Project[] = [
     hoverGallery: cloudHoverImages,
     accent: "gold",
     links: [
-      { label: "Live demo", href: "https://ahmed-cloud-security-auditor.streamlit.app/", primary: true },
-      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/cloud-security-posture-auditor" }
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/cloud-security-posture-auditor", primary: true }
     ]
   },
   {
@@ -351,7 +348,7 @@ const projectCatalog: Project[] = [
     hoverGallery: egxImages,
     accent: "blue",
     secondary: true,
-    links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/egx-research", primary: true }]
+    links: []
   },
   {
     number: "02",
@@ -381,7 +378,7 @@ const projectCatalog: Project[] = [
     hoverGallery: protocolImages,
     accent: "coral",
     secondary: true,
-    links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/Protocol", primary: true }]
+    links: []
   }
 ];
 
