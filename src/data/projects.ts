@@ -1,5 +1,5 @@
-import cloudPreview from "../../assets/cloud_security_dashboard_demo.gif";
-import cloudStillImage from "../../assets/cloud_security_dashboard_still.png";
+import cloudHoverFrameOne from "../../assets/cloud_hover_01.png";
+import cloudHoverFrameTwo from "../../assets/cloud_hover_02.png";
 import egxHoldoutExcessChart from "../../assets/egx_holdout_excess.png";
 import egxHoldoutChart from "../../assets/egx_holdout_validation.png";
 import egxMembershipChart from "../../assets/egx_membership_impact.png";
@@ -10,10 +10,10 @@ import protocolDashboardImage from "../../assets/protocol_dashboard.png";
 import protocolFocusImage from "../../assets/protocol_focus.png";
 import protocolMarketImage from "../../assets/protocol_market.png";
 import protocolTerminalImage from "../../assets/protocol_terminal.png";
-import retailPreview from "../../assets/retail_dashboard_demo.gif";
-import retailStillImage from "../../assets/retail_dashboard_still.png";
-import saasPreview from "../../assets/saas_dashboard_demo.gif";
-import saasStillImage from "../../assets/saas_dashboard_still.png";
+import retailHoverFrameOne from "../../assets/retail_hover_01.png";
+import retailHoverFrameTwo from "../../assets/retail_hover_02.png";
+import saasHoverFrameOne from "../../assets/saas_hover_01.png";
+import saasHoverFrameTwo from "../../assets/saas_hover_02.png";
 
 export type ProjectLink = {
   label: string;
@@ -66,15 +66,15 @@ const projectOrder: Record<string, number> = {
 
 const retailHoverImages: ProjectImage[] = [
   {
-    src: retailPreview,
-    alt: "Retail KPI dashboard animation.",
+    src: retailHoverFrameOne,
+    alt: "Retail KPI dashboard screenshot, frame one.",
     caption: "",
     fit: "contain",
     tone: "light"
   },
   {
-    src: retailStillImage,
-    alt: "Retail KPI dashboard screenshot.",
+    src: retailHoverFrameTwo,
+    alt: "Retail KPI dashboard screenshot, frame two.",
     caption: "",
     fit: "contain",
     tone: "light"
@@ -100,15 +100,15 @@ const opsHoverImages: ProjectImage[] = [
 
 const saasHoverImages: ProjectImage[] = [
   {
-    src: saasPreview,
-    alt: "SaaS analytics dashboard animation.",
+    src: saasHoverFrameOne,
+    alt: "SaaS analytics dashboard screenshot, frame one.",
     caption: "",
     fit: "contain",
     tone: "light"
   },
   {
-    src: saasStillImage,
-    alt: "SaaS analytics dashboard screenshot.",
+    src: saasHoverFrameTwo,
+    alt: "SaaS analytics dashboard screenshot, frame two.",
     caption: "",
     fit: "contain",
     tone: "light"
@@ -117,15 +117,15 @@ const saasHoverImages: ProjectImage[] = [
 
 const cloudHoverImages: ProjectImage[] = [
   {
-    src: cloudPreview,
-    alt: "Cloud security dashboard animation.",
+    src: cloudHoverFrameOne,
+    alt: "Cloud security dashboard screenshot, frame one.",
     caption: "",
     fit: "contain",
     tone: "light"
   },
   {
-    src: cloudStillImage,
-    alt: "Cloud security dashboard screenshot.",
+    src: cloudHoverFrameTwo,
+    alt: "Cloud security dashboard screenshot, frame two.",
     caption: "",
     fit: "contain",
     tone: "light"
@@ -219,7 +219,7 @@ const projectCatalog: Project[] = [
       "Bad records are separated instead of silently corrupting KPIs.",
       "The final tables support revenue, returns, product, and regional reporting."
     ],
-    previewImage: retailPreview,
+    previewImage: retailHoverFrameOne,
     previewFit: "contain",
     previewTone: "light",
     hoverGallery: retailHoverImages,
@@ -284,7 +284,7 @@ const projectCatalog: Project[] = [
       "Creates SQL marts for recurring SaaS metrics.",
       "Keeps metric logic close to the warehouse layer."
     ],
-    previewImage: saasPreview,
+    previewImage: saasHoverFrameOne,
     previewFit: "contain",
     previewTone: "light",
     hoverGallery: saasHoverImages,
@@ -314,7 +314,7 @@ const projectCatalog: Project[] = [
       "Encodes checks as editable YAML policies.",
       "Groups findings by severity, account, service, and remediation path."
     ],
-    previewImage: cloudPreview,
+    previewImage: cloudHoverFrameOne,
     previewFit: "contain",
     previewTone: "light",
     hoverGallery: cloudHoverImages,
