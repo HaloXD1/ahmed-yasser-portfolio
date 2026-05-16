@@ -9,6 +9,10 @@ export function ProjectLinks({ project, compact = false }: ProjectLinksProps) {
   const baseLinks = compact ? project.links.slice(0, 2) : project.links;
   const links = baseLinks;
 
+  if (!links.length) {
+    return null;
+  }
+
   return (
     <div className="button-row">
       {links.map((link) => (
