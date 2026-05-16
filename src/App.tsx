@@ -140,6 +140,19 @@ function ScrollManager() {
   }, []);
 
   useLayoutEffect(() => {
+    if (location.pathname === "/" && !location.hash) {
+      const restored = sessionStorage.getItem("scroll:home");
+      if (restored) {
+        if (lenisRef.current) {
+          lenisRef.current.scrollTo(Number(restored), { immediate: true });
+        } else {
+          window.scrollTo({ top: Number(restored), left: 0, behavior: "instant" as ScrollBehavior });
+        }
+        sessionStorage.removeItem("scroll:home");
+        return;
+      }
+    }
+
     if (location.hash) {
       const id = window.decodeURIComponent(location.hash.slice(1));
       let attempts = 0;
@@ -192,7 +205,7 @@ function ScrollManager() {
       gsap.set(workList, { clearProps: "opacity,visibility,transform" });
     }
 
-    if (location.pathname !== "/") {
+    if (location.pathname !== "/" || location.hash) {
       return;
     }
 
@@ -202,6 +215,14 @@ function ScrollManager() {
       window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
     }
   }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    return () => {
+      if (location.pathname === "/") {
+        sessionStorage.setItem("scroll:home", String(window.scrollY));
+      }
+    };
+  }, [location.pathname]);
 
   return null;
 }

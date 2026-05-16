@@ -1,9 +1,23 @@
 import { useEffect, useState } from "react";
 
 const SECTION_IDS = ["hey", "about", "work", "contact"];
+const DEFAULT_SECTION = "hey";
+
+function getInitialSection() {
+  if (typeof window === "undefined") {
+    return DEFAULT_SECTION;
+  }
+
+  const hash = window.location.hash.replace("#", "");
+  if (SECTION_IDS.includes(hash)) {
+    return hash;
+  }
+
+  return DEFAULT_SECTION;
+}
 
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState("hey");
+  const [activeSection, setActiveSection] = useState(getInitialSection);
 
   useEffect(() => {
     function onScroll() {
