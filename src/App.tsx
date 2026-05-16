@@ -156,9 +156,26 @@ function ScrollManager() {
   useLayoutEffect(() => {
     if (location.pathname === "/") {
       const restored = sessionStorage.getItem("scroll:home");
-      if (restored) {
-        const storedHash = sessionStorage.getItem("scroll:home-hash");
-        if (storedHash && location.hash !== storedHash) {
+      const storedHash = sessionStorage.getItem("scroll:home-hash");
+
+      if (location.hash) {
+        if (restored && storedHash === location.hash) {
+          if (lenisRef.current) {
+            lenisRef.current.scrollTo(Number(restored), { immediate: true });
+          } else {
+            window.scrollTo({ top: Number(restored), left: 0, behavior: "instant" as ScrollBehavior });
+          }
+          sessionStorage.removeItem("scroll:home");
+          sessionStorage.removeItem("scroll:home-hash");
+          return;
+        }
+
+        if (restored || storedHash) {
+          sessionStorage.removeItem("scroll:home");
+          sessionStorage.removeItem("scroll:home-hash");
+        }
+      } else if (restored) {
+        if (storedHash) {
           const nextUrl = `${window.location.pathname}${storedHash}`;
           window.history.replaceState(window.history.state, "", nextUrl);
         }
