@@ -50,7 +50,7 @@ export function ProjectDetailPage() {
     <main className={`page-shell detail-page accent-${project.accent}`}>
       <section className="detail-hero">
         <div className="detail-copy reveal">
-          <Link className="back-link" to="/#work">
+          <Link className="back-link" to={{ pathname: "/", hash: "#work" }}>
             &lt;- Projects
           </Link>
           <p className="eyebrow">

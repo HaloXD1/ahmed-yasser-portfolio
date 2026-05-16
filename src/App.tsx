@@ -213,9 +213,9 @@ function AppRoutes() {
       <SiteHeader />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<Navigate to="/#work" replace />} />
+        <Route path="/projects" element={<Navigate to={{ pathname: "/", hash: "#work" }} replace />} />
         <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-        <Route path="/projects.html" element={<Navigate to="/#work" replace />} />
+        <Route path="/projects.html" element={<Navigate to={{ pathname: "/", hash: "#work" }} replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
