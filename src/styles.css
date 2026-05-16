@@ -788,6 +788,23 @@ h1 {
   text-transform: uppercase;
 }
 
+.work-preview-progress {
+  background: rgba(5, 5, 5, 0.16);
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.work-preview-progress-fill {
+  animation: previewProgress 3s linear forwards;
+  background: var(--row-accent, var(--teal));
+  height: 100%;
+  transform-origin: left center;
+}
+
 .project-transition-card {
   opacity: 0;
   will-change: left, top, width, height, border-radius;
@@ -1294,6 +1311,15 @@ h1 {
   }
   100% {
     transform: translate3d(0.5rem, 0.8rem, 0);
+  }
+}
+
+@keyframes previewProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 

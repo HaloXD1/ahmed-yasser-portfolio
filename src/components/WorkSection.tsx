@@ -1,22 +1,37 @@
 import { type KeyboardEvent, type MouseEvent, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
-import { type Project, projects } from "../data/projects";
+import { type Project, type ProjectImage, projects } from "../data/projects";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useReducedMotion } from "../hooks/useReducedMotion";
 import { ProjectLinks } from "./ProjectLinks";
+
+const HOVER_PREVIEW_INTERVAL_MS = 3000;
 
 type TransitionState = {
   project: Project;
   bounds: DOMRect;
 };
 
+type PreviewSource = "focus" | "pointer" | null;
+
 function targetIsLink(eventTarget: EventTarget | null) {
   return eventTarget instanceof Element && Boolean(eventTarget.closest("a"));
 }
 
-function previewClassName(project: Project) {
-  const preview = project.gallery?.[0];
+function getProjectPreviewFrames(project: Project): ProjectImage[] {
+  if (project.hoverGallery?.length) {
+    return project.hoverGallery;
+  }
+
+  if (project.gallery?.length) {
+    return project.gallery;
+  }
+
+  return [{ src: project.previewImage, alt: "", caption: "" }];
+}
+
+function previewClassName(preview?: Pick<ProjectImage, "fit" | "tone">) {
   return [
     preview?.fit === "contain" ? "fit-contain" : "",
     `tone-${preview?.tone ?? "light"}`
@@ -28,6 +43,8 @@ function previewClassName(project: Project) {
 export function WorkSection() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
+  const [previewSource, setPreviewSource] = useState<PreviewSource>(null);
+  const [activePreviewIndex, setActivePreviewIndex] = useState(0);
   const [transition, setTransition] = useState<TransitionState | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
   const listRef = useRef<HTMLDivElement | null>(null);
@@ -39,6 +56,16 @@ export function WorkSection() {
   const navigate = useNavigate();
   const reducedMotion = useReducedMotion();
   const desktopHover = useMediaQuery("(hover: hover) and (min-width: 900px)");
+  const activePreviewFrames = activeProject ? getProjectPreviewFrames(activeProject) : [];
+  const activePreview = activePreviewFrames[activePreviewIndex] ?? activePreviewFrames[0];
+  const shouldRotatePreview = Boolean(
+    activeProject &&
+      previewSource === "pointer" &&
+      desktopHover &&
+      !reducedMotion &&
+      !transition &&
+      activePreviewFrames.length > 1
+  );
 
   // Debounce the project change
   useEffect(() => {
@@ -53,6 +80,23 @@ export function WorkSection() {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, [hoveredProject, activeProject]);
+
+  useEffect(() => {
+    setActivePreviewIndex(0);
+  }, [activeProject?.slug]);
+
+  useEffect(() => {
+    if (!shouldRotatePreview || !activeProject) {
+      return;
+    }
+
+    const frameCount = getProjectPreviewFrames(activeProject).length;
+    const intervalId = window.setInterval(() => {
+      setActivePreviewIndex((current) => (current + 1) % frameCount);
+    }, HOVER_PREVIEW_INTERVAL_MS);
+
+    return () => window.clearInterval(intervalId);
+  }, [activeProject, shouldRotatePreview]);
 
   useEffect(() => {
     const preview = previewRef.current;
@@ -195,7 +239,14 @@ export function WorkSection() {
         <h2 id="work-title">Selected systems</h2>
       </div>
 
-      <div ref={listRef} className="work-list" onMouseLeave={() => setHoveredProject(null)}>
+      <div
+        ref={listRef}
+        className="work-list"
+        onMouseLeave={() => {
+          setHoveredProject(null);
+          setPreviewSource(null);
+        }}
+      >
         {projects.map((project) => (
           <article
             key={project.slug}
@@ -203,8 +254,14 @@ export function WorkSection() {
             role="link"
             tabIndex={0}
             onClick={(event: MouseEvent<HTMLElement>) => openProject(project, event.target)}
-            onFocus={() => setHoveredProject(project)}
-            onMouseEnter={() => setHoveredProject(project)}
+            onFocus={() => {
+              setHoveredProject(project);
+              setPreviewSource("focus");
+            }}
+            onMouseEnter={() => {
+              setHoveredProject(project);
+              setPreviewSource("pointer");
+            }}
             onKeyDown={(event) => onRowKeyDown(project, event)}
           >
             <div className="work-title">
@@ -215,7 +272,7 @@ export function WorkSection() {
             <p>{project.summary}</p>
             <ProjectLinks project={project} compact />
             <img
-              className={`work-mobile-preview ${previewClassName(project)}`}
+              className={`work-mobile-preview ${previewClassName(getProjectPreviewFrames(project)[0])}`}
               src={project.previewImage}
               alt=""
               loading="lazy"
@@ -225,15 +282,33 @@ export function WorkSection() {
         ))}
       </div>
 
-      <div ref={previewRef} className={`work-preview ${activeProject ? previewClassName(activeProject) : ""}`} aria-hidden="true">
+      <div
+        ref={previewRef}
+        className={`work-preview ${activeProject ? `accent-${activeProject.accent}` : ""} ${previewClassName(activePreview)}`}
+        aria-hidden="true"
+      >
         {activeProject && (
-          <img src={activeProject.previewImage} alt="" />
+          <>
+            <img src={activePreview?.src ?? activeProject.previewImage} alt="" />
+            {shouldRotatePreview ? (
+              <div className="work-preview-progress" role="presentation">
+                <div
+                  key={`${activeProject.slug}-${activePreviewIndex}`}
+                  className="work-preview-progress-fill"
+                />
+              </div>
+            ) : null}
+          </>
         )}
       </div>
 
       {transition && (
         <>
-          <div ref={transitionRef} className={`project-transition-card ${previewClassName(transition.project)}`} aria-hidden="true">
+          <div
+            ref={transitionRef}
+            className={`project-transition-card ${previewClassName(getProjectPreviewFrames(transition.project)[0])}`}
+            aria-hidden="true"
+          >
             <img src={transition.project.previewImage} alt="" />
           </div>
           <div ref={overlayRef} className="project-transition-overlay" aria-hidden="true" />
@@ -246,7 +321,10 @@ export function WorkSection() {
             <div className={`page-shell detail-page accent-${transition.project.accent}`}>
               <section className="detail-hero">
                 <div className="detail-copy"></div>
-                <div className={`detail-visual ${previewClassName(transition.project)}`} ref={dummyTargetRef}></div>
+                <div
+                  className={`detail-visual ${previewClassName(getProjectPreviewFrames(transition.project)[0])}`}
+                  ref={dummyTargetRef}
+                ></div>
               </section>
             </div>
           </div>
