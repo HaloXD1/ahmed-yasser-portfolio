@@ -28,13 +28,23 @@ function getProjectPreviewFrames(project: Project): ProjectImage[] {
     return project.gallery;
   }
 
-  return [{ src: project.previewImage, alt: "", caption: "" }];
+  return [
+    {
+      src: project.previewImage,
+      alt: "",
+      caption: "",
+      fit: project.previewFit,
+      tone: project.previewTone,
+      frame: project.previewFrame
+    }
+  ];
 }
 
-function previewClassName(preview?: Pick<ProjectImage, "fit" | "tone">) {
+function previewClassName(preview?: Pick<ProjectImage, "fit" | "tone" | "frame">) {
   return [
     preview?.fit === "contain" ? "fit-contain" : "",
-    `tone-${preview?.tone ?? "light"}`
+    `tone-${preview?.tone ?? "light"}`,
+    preview?.frame === "phone" ? "frame-phone" : ""
   ]
     .filter(Boolean)
     .join(" ");
@@ -104,12 +114,22 @@ export function WorkSection() {
       return;
     }
 
-    const xTo = gsap.quickTo(preview, "x", { duration: 0.55, ease: "power3.out" });
-    const yTo = gsap.quickTo(preview, "y", { duration: 0.55, ease: "power3.out" });
+    const previewElement = preview;
+    const xTo = gsap.quickTo(previewElement, "x", { duration: 0.55, ease: "power3.out" });
+    const yTo = gsap.quickTo(previewElement, "y", { duration: 0.55, ease: "power3.out" });
+    const viewportPadding = 24;
 
     function onMove(event: PointerEvent) {
-      xTo(event.clientX + 34);
-      yTo(event.clientY - 210);
+      const rect = previewElement.getBoundingClientRect();
+      const preferredX = event.clientX + 34;
+      const preferredY = event.clientY - Math.min(210, rect.height * 0.34);
+      const maxX = Math.max(viewportPadding, window.innerWidth - rect.width - viewportPadding);
+      const maxY = Math.max(viewportPadding, window.innerHeight - rect.height - viewportPadding);
+      const nextX = Math.min(Math.max(preferredX, viewportPadding), maxX);
+      const nextY = Math.min(Math.max(preferredY, viewportPadding), maxY);
+
+      xTo(nextX);
+      yTo(nextY);
     }
 
     window.addEventListener("pointermove", onMove);

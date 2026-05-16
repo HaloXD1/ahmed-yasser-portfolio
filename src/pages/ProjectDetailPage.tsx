@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ProjectLinks } from "../components/ProjectLinks";
-import { getProject } from "../data/projects";
+import { type ProjectImage, getProject } from "../data/projects";
+
+function visualClassName(image?: Pick<ProjectImage, "fit" | "tone" | "frame">) {
+  return [
+    image?.fit === "contain" ? "fit-contain" : "",
+    `tone-${image?.tone ?? "light"}`,
+    image?.frame === "phone" ? "frame-phone" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
 
 export function ProjectDetailPage() {
   const { slug } = useParams();
@@ -16,11 +26,17 @@ export function ProjectDetailPage() {
     return <Navigate to="/projects" replace />;
   }
 
-  const carouselImages = project.gallery ?? [];
-  const selectedImage = carouselImages[activeImage];
+  const fallbackImage: ProjectImage = {
+    src: project.previewImage,
+    alt: `${project.title} preview`,
+    caption: "",
+    fit: project.previewFit,
+    tone: project.previewTone,
+    frame: project.previewFrame
+  };
+  const carouselImages = project.detailGallery ?? [];
+  const selectedImage = carouselImages[activeImage] ?? fallbackImage;
   const hasCarousel = carouselImages.length > 1;
-  const visualTone = selectedImage?.tone ?? "light";
-  const visualFit = selectedImage?.fit ?? "cover";
 
   const showPreviousImage = () => {
     setActiveImage((current) => (current === 0 ? carouselImages.length - 1 : current - 1));
@@ -44,8 +60,8 @@ export function ProjectDetailPage() {
           <p>{project.summary}</p>
           <ProjectLinks project={project} />
         </div>
-        <div className={`detail-visual tone-${visualTone} fit-${visualFit}`}>
-          <img src={selectedImage?.src ?? project.previewImage} alt={selectedImage?.alt ?? ""} />
+        <div className={`detail-visual ${visualClassName(selectedImage)}`}>
+          <img src={selectedImage.src} alt={selectedImage.alt} />
           {hasCarousel ? (
             <div className="detail-carousel-controls" aria-label={`${project.title} image controls`}>
               <button type="button" aria-label="Previous image" onClick={showPreviousImage}>
@@ -100,7 +116,8 @@ export function ProjectDetailPage() {
                 className={[
                   index === 0 ? "featured" : "",
                   image.fit === "contain" ? "fit-contain" : "",
-                  `tone-${image.tone ?? "light"}`
+                  `tone-${image.tone ?? "light"}`,
+                  image.frame === "phone" ? "frame-phone" : ""
                 ]
                   .filter(Boolean)
                   .join(" ")}

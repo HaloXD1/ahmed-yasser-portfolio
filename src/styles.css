@@ -756,7 +756,9 @@ h1 {
 .work-preview.fit-contain,
 .project-transition-card.fit-contain,
 .detail-visual.fit-contain,
-.work-mobile-preview.fit-contain {
+.work-mobile-preview.fit-contain,
+.project-index-image,
+.related-link img {
   background: #f8f5ed;
 }
 
@@ -765,6 +767,13 @@ h1 {
 .detail-visual.tone-dark,
 .work-mobile-preview.tone-dark {
   background: var(--paper);
+}
+
+.work-preview.frame-phone,
+.project-transition-card.frame-phone {
+  aspect-ratio: 1206 / 2622;
+  height: min(72vh, 696px);
+  width: auto;
 }
 
 .work-preview.fit-contain img,
@@ -968,7 +977,9 @@ h1 {
 .project-index-image {
   aspect-ratio: 16 / 10;
   border: 1px solid var(--line);
+  display: grid;
   overflow: hidden;
+  place-items: center;
   text-decoration: none;
 }
 
@@ -976,6 +987,10 @@ h1 {
 .related-link img,
 .detail-visual img {
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-index-image img {
+  object-fit: contain;
 }
 
 .project-index-image:hover img,
@@ -1035,9 +1050,19 @@ h1 {
 
 .detail-visual {
   aspect-ratio: 16 / 11;
+  background: #f8f5ed;
   border: 2px solid var(--line);
+  display: grid;
   overflow: hidden;
+  place-items: center;
   position: relative;
+}
+
+.detail-visual.frame-phone {
+  aspect-ratio: 1206 / 2622;
+  justify-self: center;
+  max-width: min(100%, 360px);
+  width: 100%;
 }
 
 .detail-visual.fit-contain:hover img {
@@ -1206,6 +1231,10 @@ h1 {
   padding: clamp(10px, 1.6vw, 18px);
 }
 
+.project-gallery-grid figure.frame-phone img {
+  aspect-ratio: 1206 / 2622;
+}
+
 .project-gallery-grid figure.tone-dark {
   background: #151311;
   color: var(--paper);
@@ -1266,7 +1295,7 @@ h1 {
 .related-link img {
   aspect-ratio: 16 / 10;
   border: 1px solid var(--line);
-  object-fit: cover;
+  object-fit: contain;
   overflow: hidden;
 }
 

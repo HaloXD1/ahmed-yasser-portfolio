@@ -1,15 +1,19 @@
 import cloudPreview from "../../assets/cloud_security_dashboard_demo.gif";
+import cloudStillImage from "../../assets/cloud_security_dashboard_still.png";
 import egxHoldoutExcessChart from "../../assets/egx_holdout_excess.png";
 import egxHoldoutChart from "../../assets/egx_holdout_validation.png";
 import egxMembershipChart from "../../assets/egx_membership_impact.png";
 import egxRiskMapChart from "../../assets/egx_risk_adjusted_map.png";
 import opsPreview from "../../assets/opstwin_command_center.png";
+import opsHeroImage from "../../assets/opstwin_hero.png";
 import protocolDashboardImage from "../../assets/protocol_dashboard.png";
 import protocolFocusImage from "../../assets/protocol_focus.png";
 import protocolMarketImage from "../../assets/protocol_market.png";
 import protocolTerminalImage from "../../assets/protocol_terminal.png";
 import retailPreview from "../../assets/retail_dashboard_demo.gif";
+import retailStillImage from "../../assets/retail_dashboard_still.png";
 import saasPreview from "../../assets/saas_dashboard_demo.gif";
+import saasStillImage from "../../assets/saas_dashboard_still.png";
 
 export type ProjectLink = {
   label: string;
@@ -23,6 +27,7 @@ export type ProjectImage = {
   caption: string;
   fit?: "cover" | "contain";
   tone?: "light" | "dark";
+  frame?: "phone";
 };
 
 export type Project = {
@@ -39,6 +44,10 @@ export type Project = {
   whyItMatters: string;
   highlights: string[];
   previewImage: string;
+  previewFit?: "cover" | "contain";
+  previewTone?: "light" | "dark";
+  previewFrame?: "phone";
+  detailGallery?: ProjectImage[];
   gallery?: ProjectImage[];
   hoverGallery?: ProjectImage[];
   accent: "teal" | "blue" | "coral" | "gold";
@@ -54,6 +63,140 @@ const projectOrder: Record<string, number> = {
   "opstwin-control-tower": 5,
   "cloud-security-posture-auditor": 6
 };
+
+const retailHoverImages: ProjectImage[] = [
+  {
+    src: retailPreview,
+    alt: "Retail KPI dashboard animation.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  },
+  {
+    src: retailStillImage,
+    alt: "Retail KPI dashboard screenshot.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  }
+];
+
+const opsHoverImages: ProjectImage[] = [
+  {
+    src: opsPreview,
+    alt: "OpsTwin command center dashboard.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  },
+  {
+    src: opsHeroImage,
+    alt: "OpsTwin operations map overview.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  }
+];
+
+const saasHoverImages: ProjectImage[] = [
+  {
+    src: saasPreview,
+    alt: "SaaS analytics dashboard animation.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  },
+  {
+    src: saasStillImage,
+    alt: "SaaS analytics dashboard screenshot.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  }
+];
+
+const cloudHoverImages: ProjectImage[] = [
+  {
+    src: cloudPreview,
+    alt: "Cloud security dashboard animation.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  },
+  {
+    src: cloudStillImage,
+    alt: "Cloud security dashboard screenshot.",
+    caption: "",
+    fit: "contain",
+    tone: "light"
+  }
+];
+
+const egxImages: ProjectImage[] = [
+  {
+    src: egxMembershipChart,
+    alt: "EGX chart comparing strategy results across membership assumptions.",
+    caption: "Data provenance can flip the result, so the toolkit makes membership assumptions visible.",
+    fit: "contain",
+    tone: "light"
+  },
+  {
+    src: egxHoldoutChart,
+    alt: "EGX holdout validation chart comparing research runs against a baseline.",
+    caption: "Holdout validation checks whether a run still makes sense outside the tuning window.",
+    fit: "contain",
+    tone: "light"
+  },
+  {
+    src: egxHoldoutExcessChart,
+    alt: "EGX holdout excess ladder chart.",
+    caption: "The ladder shows which research variants added value after the baseline comparison.",
+    fit: "contain",
+    tone: "light"
+  },
+  {
+    src: egxRiskMapChart,
+    alt: "EGX risk map plotting return against drawdown.",
+    caption: "The risk map keeps drawdown beside return, because a bigger number is not automatically a better system.",
+    fit: "contain",
+    tone: "light"
+  }
+];
+
+const protocolImages: ProjectImage[] = [
+  {
+    src: protocolDashboardImage,
+    alt: "Protocol mobile dashboard with market pulse, daily habits, and command cards.",
+    caption: "The dashboard pulls market pulse, habits, points, and daily commands into one starting screen.",
+    fit: "contain",
+    tone: "dark",
+    frame: "phone"
+  },
+  {
+    src: protocolTerminalImage,
+    alt: "Protocol terminal diagnostics screen showing daily commits and activity.",
+    caption: "The diagnostics view turns activity history into something reviewable instead of hidden.",
+    fit: "contain",
+    tone: "dark",
+    frame: "phone"
+  },
+  {
+    src: protocolMarketImage,
+    alt: "Protocol reward market and inventory screen.",
+    caption: "The market gives the habit system a simple reward loop with points, history, and inventory.",
+    fit: "contain",
+    tone: "dark",
+    frame: "phone"
+  },
+  {
+    src: protocolFocusImage,
+    alt: "Protocol focus timer screen for a study session.",
+    caption: "The focus screen makes the session feel intentional, with a timer and launch checklist.",
+    fit: "contain",
+    tone: "dark",
+    frame: "phone"
+  }
+];
 
 const projectCatalog: Project[] = [
   {
@@ -77,6 +220,9 @@ const projectCatalog: Project[] = [
       "The final tables support revenue, returns, product, and regional reporting."
     ],
     previewImage: retailPreview,
+    previewFit: "contain",
+    previewTone: "light",
+    hoverGallery: retailHoverImages,
     accent: "teal",
     links: [
       { label: "Live demo", href: "https://ahmed-retail-kpi-dashboard.streamlit.app/", primary: true },
@@ -109,6 +255,9 @@ const projectCatalog: Project[] = [
       "SQL lab and generated postmortems inside a static browser app."
     ],
     previewImage: opsPreview,
+    previewFit: "contain",
+    previewTone: "light",
+    hoverGallery: opsHoverImages,
     accent: "blue",
     links: [
       { label: "Live demo", href: "https://ahmedyassershalaby.github.io/ops-twin-control-tower/", primary: true },
@@ -136,6 +285,9 @@ const projectCatalog: Project[] = [
       "Keeps metric logic close to the warehouse layer."
     ],
     previewImage: saasPreview,
+    previewFit: "contain",
+    previewTone: "light",
+    hoverGallery: saasHoverImages,
     accent: "coral",
     links: [
       { label: "Live demo", href: "https://ahmed-saas-analytics-pipeline.streamlit.app/", primary: true },
@@ -163,6 +315,9 @@ const projectCatalog: Project[] = [
       "Groups findings by severity, account, service, and remediation path."
     ],
     previewImage: cloudPreview,
+    previewFit: "contain",
+    previewTone: "light",
+    hoverGallery: cloudHoverImages,
     accent: "gold",
     links: [
       { label: "Live demo", href: "https://ahmed-cloud-security-auditor.streamlit.app/", primary: true },
@@ -190,36 +345,10 @@ const projectCatalog: Project[] = [
       "Shows return, drawdown, and risk-adjusted context together."
     ],
     previewImage: egxMembershipChart,
-    hoverGallery: [
-      {
-        src: egxMembershipChart,
-        alt: "EGX chart comparing strategy results across membership assumptions.",
-        caption: "Data provenance can flip the result, so the toolkit makes membership assumptions visible.",
-        fit: "contain",
-        tone: "light"
-      },
-      {
-        src: egxHoldoutChart,
-        alt: "EGX holdout validation chart comparing research runs against a baseline.",
-        caption: "Holdout validation checks whether a run still makes sense outside the tuning window.",
-        fit: "contain",
-        tone: "light"
-      },
-      {
-        src: egxHoldoutExcessChart,
-        alt: "EGX holdout excess ladder chart.",
-        caption: "The ladder shows which research variants added value after the baseline comparison.",
-        fit: "contain",
-        tone: "light"
-      },
-      {
-        src: egxRiskMapChart,
-        alt: "EGX risk map plotting return against drawdown.",
-        caption: "The risk map keeps drawdown beside return, because a bigger number is not automatically a better system.",
-        fit: "contain",
-        tone: "light"
-      }
-    ],
+    previewFit: "contain",
+    previewTone: "light",
+    detailGallery: egxImages,
+    hoverGallery: egxImages,
     accent: "blue",
     secondary: true,
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/egx-research", primary: true }]
@@ -245,36 +374,11 @@ const projectCatalog: Project[] = [
       "Shows product and frontend execution alongside the data projects."
     ],
     previewImage: protocolDashboardImage,
-    hoverGallery: [
-      {
-        src: protocolDashboardImage,
-        alt: "Protocol mobile dashboard with market pulse, daily habits, and command cards.",
-        caption: "The dashboard pulls market pulse, habits, points, and daily commands into one starting screen.",
-        fit: "contain",
-        tone: "dark"
-      },
-      {
-        src: protocolTerminalImage,
-        alt: "Protocol terminal diagnostics screen showing daily commits and activity.",
-        caption: "The diagnostics view turns activity history into something reviewable instead of hidden.",
-        fit: "contain",
-        tone: "dark"
-      },
-      {
-        src: protocolMarketImage,
-        alt: "Protocol reward market and inventory screen.",
-        caption: "The market gives the habit system a simple reward loop with points, history, and inventory.",
-        fit: "contain",
-        tone: "dark"
-      },
-      {
-        src: protocolFocusImage,
-        alt: "Protocol focus timer screen for a study session.",
-        caption: "The focus screen makes the session feel intentional, with a timer and launch checklist.",
-        fit: "contain",
-        tone: "dark"
-      }
-    ],
+    previewFit: "contain",
+    previewTone: "dark",
+    previewFrame: "phone",
+    detailGallery: protocolImages,
+    hoverGallery: protocolImages,
     accent: "coral",
     secondary: true,
     links: [{ label: "Repository", href: "https://github.com/AhmedYasserShalaby/Protocol", primary: true }]
