@@ -142,13 +142,57 @@ function ScrollManager() {
   useLayoutEffect(() => {
     if (location.hash) {
       const id = window.decodeURIComponent(location.hash.slice(1));
-      window.setTimeout(() => {
-        if (lenisRef.current) {
-          lenisRef.current.scrollTo(document.getElementById(id) || 0, { immediate: true });
-        } else {
-          document.getElementById(id)?.scrollIntoView({ block: "start" });
+      let attempts = 0;
+      let timeoutId: number | null = null;
+
+      const scrollToHashTarget = () => {
+        const target = document.getElementById(id);
+
+        if (target) {
+          if (lenisRef.current) {
+            lenisRef.current.scrollTo(target, { immediate: true });
+          } else {
+            target.scrollIntoView({ block: "start" });
+          }
+          return;
         }
-      }, 30);
+
+        if (attempts < 8) {
+          attempts += 1;
+          timeoutId = window.setTimeout(scrollToHashTarget, 40);
+        }
+      };
+
+      timeoutId = window.setTimeout(scrollToHashTarget, 30);
+      return () => {
+        if (timeoutId !== null) {
+          window.clearTimeout(timeoutId);
+        }
+      };
+    }
+
+    // Reset any transition animation leftovers when routes change.
+    const header = document.querySelector(".site-header") as HTMLElement | null;
+    if (header) {
+      gsap.set(header, { clearProps: "opacity,visibility,transform" });
+    }
+
+    const dataField = document.querySelector(".data-field") as HTMLElement | null;
+    if (dataField) {
+      gsap.set(dataField, { clearProps: "opacity,visibility,transform" });
+    }
+
+    const sectionHeadings = document.querySelectorAll(".section-heading");
+    if (sectionHeadings.length) {
+      gsap.set(sectionHeadings, { clearProps: "opacity,visibility,transform" });
+    }
+
+    const workList = document.querySelector(".work-list") as HTMLElement | null;
+    if (workList) {
+      gsap.set(workList, { clearProps: "opacity,visibility,transform" });
+    }
+
+    if (location.pathname !== "/") {
       return;
     }
 

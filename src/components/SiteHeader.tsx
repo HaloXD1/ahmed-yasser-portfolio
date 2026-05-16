@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useActiveSection } from "../hooks/useActiveSection";
 
@@ -12,6 +13,19 @@ export function SiteHeader() {
   const location = useLocation();
   const activeSection = useActiveSection();
   const onHome = location.pathname === "/";
+
+  useEffect(() => {
+    if (!onHome) {
+      return;
+    }
+
+    const nextHash = `#${activeSection}`;
+    if (location.hash === nextHash) {
+      return;
+    }
+
+    window.history.replaceState(window.history.state, "", `${location.pathname}${nextHash}`);
+  }, [activeSection, location.hash, location.pathname, onHome]);
 
   return (
     <header className="site-header" aria-label="Primary navigation">
