@@ -225,6 +225,15 @@ function ScrollManager() {
       gsap.set(workList, { clearProps: "opacity,visibility,transform" });
     }
 
+    if (location.pathname.startsWith("/projects/")) {
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+      }
+      return;
+    }
+
     if (location.pathname !== "/" || location.hash) {
       return;
     }
