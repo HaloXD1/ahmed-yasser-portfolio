@@ -225,7 +225,7 @@ const projectCatalog: Project[] = [
     howItWorks:
       "Synthetic orders, payments, shipments, inventory, returns, and web events flow through batch and streaming ingestion into bronze, silver, and gold layers, then DuckDB marts power analytics and quality reporting.",
     whyItMatters:
-      "Recruiters can see orchestration, lakehouse design, contracts, streaming checkpoints, observability, CI, Docker, and AWS mapping in one project instead of separate small examples.",
+      "The project brings orchestration, lakehouse design, contracts, streaming checkpoints, observability, CI, Docker, and AWS mapping into one coherent system.",
     highlights: [
       "Processes 250k+ orders and 5M+ events in the full profile.",
       "Builds bronze, silver, and gold lakehouse layers with rejected-row evidence.",
