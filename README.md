@@ -21,6 +21,7 @@ GitHub Pages builds the app from `main` and publishes `dist`.
 
 ## Featured Projects
 
+- E-Commerce Cloud Data Platform
 - Retail Data Pipeline and KPI Dashboard
 - OpsTwin Control Tower
 - SaaS Analytics Engineering Pipeline

@@ -1,5 +1,6 @@
 import cloudHoverFrameOne from "../../assets/cloud_hover_01.png";
 import cloudHoverFrameTwo from "../../assets/cloud_hover_02.png";
+import ecommercePlatformConsole from "../../assets/ecommerce_platform_console.png";
 import egxHoldoutExcessChart from "../../assets/egx_holdout_excess.png";
 import egxHoldoutChart from "../../assets/egx_holdout_validation.png";
 import egxMembershipChart from "../../assets/egx_membership_impact.png";
@@ -56,12 +57,13 @@ export type Project = {
 };
 
 const projectOrder: Record<string, number> = {
-  "retail-data-pipeline": 1,
-  "protocol-productivity-app": 2,
-  "egx-research-toolkit": 3,
-  "saas-analytics-engineering-pipeline": 4,
-  "opstwin-control-tower": 5,
-  "cloud-security-posture-auditor": 6
+  "ecommerce-cloud-data-platform": 1,
+  "retail-data-pipeline": 2,
+  "protocol-productivity-app": 3,
+  "egx-research-toolkit": 4,
+  "saas-analytics-engineering-pipeline": 5,
+  "opstwin-control-tower": 6,
+  "cloud-security-posture-auditor": 7
 };
 
 const retailHoverImages: ProjectImage[] = [
@@ -127,6 +129,16 @@ const cloudHoverImages: ProjectImage[] = [
     src: cloudHoverFrameTwo,
     alt: "Cloud security dashboard screenshot, frame two.",
     caption: "",
+    fit: "contain",
+    tone: "light"
+  }
+];
+
+const ecommercePlatformImages: ProjectImage[] = [
+  {
+    src: ecommercePlatformConsole,
+    alt: "E-commerce cloud data platform console with KPIs, revenue trend, and warehouse table.",
+    caption: "The platform console shows revenue, SLA, data quality score, warehouse marts, and SQL-ready outputs.",
     fit: "contain",
     tone: "light"
   }
@@ -201,6 +213,40 @@ const protocolImages: ProjectImage[] = [
 const projectCatalog: Project[] = [
   {
     number: "01",
+    slug: "ecommerce-cloud-data-platform",
+    title: "E-Commerce Cloud Data Platform",
+    shortTitle: "Cloud Data Platform",
+    category: "Data engineering flagship",
+    type: "Lakehouse platform",
+    stack: ["Python", "DuckDB", "Parquet", "Airflow", "Streaming", "Terraform", "Streamlit"],
+    summary: "A hybrid local/AWS-ready data platform for e-commerce operations, built to feel closer to real data engineering than a dashboard demo.",
+    intent:
+      "I built this to make my portfolio show the full data engineering loop: ingest messy source data, land it safely, clean and model it, monitor quality, and give the business a console they can trust.",
+    howItWorks:
+      "Synthetic orders, payments, shipments, inventory, returns, and web events flow through batch and streaming ingestion into bronze, silver, and gold layers, then DuckDB marts power analytics and quality reporting.",
+    whyItMatters:
+      "Recruiters can see orchestration, lakehouse design, contracts, streaming checkpoints, observability, CI, Docker, and AWS mapping in one project instead of separate small examples.",
+    highlights: [
+      "Processes 250k+ orders and 5M+ events in the full profile.",
+      "Builds bronze, silver, and gold lakehouse layers with rejected-row evidence.",
+      "Includes Airflow DAGs, quality scorecard, freshness monitoring, Terraform, and a Streamlit platform console."
+    ],
+    previewImage: ecommercePlatformConsole,
+    previewFit: "contain",
+    previewTone: "light",
+    detailGallery: ecommercePlatformImages,
+    hoverGallery: ecommercePlatformImages,
+    accent: "teal",
+    links: [
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/ecommerce-cloud-data-platform", primary: true },
+      {
+        label: "Architecture",
+        href: "https://github.com/AhmedYasserShalaby/ecommerce-cloud-data-platform/blob/main/docs/architecture.md"
+      }
+    ]
+  },
+  {
+    number: "02",
     slug: "retail-data-pipeline",
     title: "Retail Data Pipeline and KPI Dashboard",
     shortTitle: "Retail Data Pipeline",
@@ -234,7 +280,7 @@ const projectCatalog: Project[] = [
     ]
   },
   {
-    number: "05",
+    number: "06",
     slug: "opstwin-control-tower",
     title: "OpsTwin Control Tower",
     shortTitle: "OpsTwin Control Tower",
@@ -264,7 +310,7 @@ const projectCatalog: Project[] = [
     ]
   },
   {
-    number: "04",
+    number: "05",
     slug: "saas-analytics-engineering-pipeline",
     title: "SaaS Analytics Engineering Pipeline",
     shortTitle: "SaaS Analytics Pipeline",
@@ -293,7 +339,7 @@ const projectCatalog: Project[] = [
     ]
   },
   {
-    number: "06",
+    number: "07",
     slug: "cloud-security-posture-auditor",
     title: "Cloud Security Posture Auditor",
     shortTitle: "Cloud Security Auditor",
@@ -322,7 +368,7 @@ const projectCatalog: Project[] = [
     ]
   },
   {
-    number: "03",
+    number: "04",
     slug: "egx-research-toolkit",
     title: "EGX Research Toolkit",
     shortTitle: "EGX Research Toolkit",
@@ -353,7 +399,7 @@ const projectCatalog: Project[] = [
     ]
   },
   {
-    number: "02",
+    number: "03",
     slug: "protocol-productivity-app",
     title: "Protocol Productivity App",
     shortTitle: "Protocol Productivity App",
