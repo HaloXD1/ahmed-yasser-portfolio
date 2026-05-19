@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState, useRef } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -106,15 +106,15 @@ function CustomCursor() {
 gsap.registerPlugin(ScrollTrigger);
 
 const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+const sectionIds = ["hey", "about", "work", "contact"];
 
 function ScrollManager() {
   const location = useLocation();
   const lenisRef = useRef<Lenis | null>(null);
-  const sectionIds = ["hey", "about", "work", "contact"];
 
-  const getScrollPosition = () => (lenisRef.current ? lenisRef.current.scroll : window.scrollY);
+  const getScrollPosition = useCallback(() => (lenisRef.current ? lenisRef.current.scroll : window.scrollY), []);
 
-  const getSectionFromScroll = () => {
+  const getSectionFromScroll = useCallback(() => {
     const scrollY = getScrollPosition() + window.innerHeight / 3;
     for (let i = sectionIds.length - 1; i >= 0; i--) {
       const el = document.getElementById(sectionIds[i]);
@@ -123,7 +123,7 @@ function ScrollManager() {
       }
     }
     return sectionIds[0];
-  };
+  }, [getScrollPosition]);
 
   useScrollReveal(`${location.pathname}${location.hash}`);
 
@@ -271,7 +271,7 @@ function ScrollManager() {
         sessionStorage.setItem("scroll:home-hash", nextHash);
       }
     };
-  }, [location.pathname]);
+  }, [location.pathname, getScrollPosition, getSectionFromScroll]);
 
   return null;
 }
