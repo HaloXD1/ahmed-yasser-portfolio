@@ -216,12 +216,12 @@ const projectCatalog: Project[] = [
     slug: "ecommerce-cloud-data-platform",
     title: "E-Commerce Cloud Data Platform",
     shortTitle: "Cloud Data Platform",
-    category: "Data engineering flagship",
+    category: "Data engineering platform",
     type: "Lakehouse platform",
     stack: ["Python", "DuckDB", "Parquet", "Airflow", "Streaming", "Terraform", "Streamlit"],
-    summary: "A hybrid local/AWS-ready data platform for e-commerce operations, built to feel closer to real data engineering than a dashboard demo.",
+    summary: "A hybrid local/AWS-ready data platform for e-commerce operations with batch ingestion, streaming events, lakehouse layers, orchestration, quality checks, and a Streamlit console.",
     intent:
-      "I built this to make my portfolio show the full data engineering loop: ingest messy source data, land it safely, clean and model it, monitor quality, and give the business a console they can trust.",
+      "I built this to model the full data engineering loop: ingest messy source data, land it safely, clean and model it, monitor quality, and expose trusted operational metrics.",
     howItWorks:
       "Synthetic orders, payments, shipments, inventory, returns, and web events flow through batch and streaming ingestion into bronze, silver, and gold layers, then DuckDB marts power analytics and quality reporting.",
     whyItMatters:
@@ -238,7 +238,12 @@ const projectCatalog: Project[] = [
     hoverGallery: ecommercePlatformImages,
     accent: "teal",
     links: [
-      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/ecommerce-cloud-data-platform", primary: true },
+      {
+        label: "Technical report",
+        href: "https://ahmedyassershalaby.github.io/ecommerce-cloud-data-platform/",
+        primary: true
+      },
+      { label: "Repository", href: "https://github.com/AhmedYasserShalaby/ecommerce-cloud-data-platform" },
       {
         label: "Architecture",
         href: "https://github.com/AhmedYasserShalaby/ecommerce-cloud-data-platform/blob/main/docs/architecture.md"
